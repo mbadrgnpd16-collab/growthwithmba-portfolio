@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./ui/SectionHeader";
-import { Card } from "./ui/Card";
+import { Card, CardTitle, CardDescription } from "./ui/Card";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
 import {
