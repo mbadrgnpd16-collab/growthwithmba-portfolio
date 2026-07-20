@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./ui/SectionHeader";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/Card";
+import { Card } from "./ui/Card";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
 import {
@@ -173,16 +173,22 @@ export const About = () => {
               Personal Introduction
             </Badge>
 
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-relaxed">
-              "Hi, I'm M. Bin Amir, founder of GrowthWithMBA. I help businesses grow by combining performance marketing, AI automation, and AI-powered product development."
+            {/* Clear Heading for the Column */}
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Growth Engineering Driven by Measurable ROI.
             </h3>
 
-            <p className="text-base text-zinc-300 leading-relaxed font-medium">
+            {/* Proper Body Paragraph Introduction (Not a Heading) */}
+            <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+              Hi, I'm <strong className="text-white font-semibold">M. Bin Amir</strong>, founder of GrowthWithMBA. I help businesses grow by combining performance marketing, AI automation, and AI-powered product development.
+            </p>
+
+            <p className="text-base text-zinc-300 leading-relaxed">
               My goal is simple: build systems that generate measurable business results—not just more clicks or followers.
             </p>
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-              Growing a modern business requires more than running generic ad campaigns. It demands a cohesive strategy that connects your marketing channels directly to functional, intelligent digital products built with tools like <span className="text-indigo-400 font-mono font-semibold">Antigravity, Lovable, and Supabase</span>.
+              Growing a modern business requires more than running generic ad campaigns. It demands a cohesive strategy that connects your acquisition channels directly to functional, intelligent digital products built with tools like <span className="text-indigo-400 font-mono font-semibold">Antigravity, Lovable, and Supabase</span>.
             </p>
 
             {/* Credibility Checklist */}

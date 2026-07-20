@@ -1,10 +1,13 @@
 import React from "react";
-import { Sparkles, ArrowUp, Heart } from "lucide-react";
+import { Sparkles, ArrowUp } from "lucide-react";
 
 export const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const emailAddress = "growthwithmba@gmail.com";
+  const whatsappUrl = "https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20growth%20project.";
 
   return (
     <footer className="bg-[#070709] border-t border-zinc-800/80 pt-16 pb-12 text-zinc-400">
@@ -65,8 +68,8 @@ export const Footer = () => {
                 Connect
               </div>
               <ul className="space-y-2">
-                <li><a href="mailto:m.binamir@growthwithmba.com" className="hover:text-white transition-colors">Email Direct</a></li>
-                <li><a href="https://wa.me/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">WhatsApp</a></li>
+                <li><a href={`mailto:${emailAddress}`} className="hover:text-white transition-colors">Email Direct</a></li>
+                <li><a href={whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp (+92 321 2594511)</a></li>
                 <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
               </ul>
             </div>

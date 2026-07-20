@@ -11,12 +11,17 @@ import {
   CheckCircle2,
   Clock,
   ShieldCheck,
-  Globe
+  Globe,
+  PhoneCall
 } from "lucide-react";
 
 export const Contact = () => {
+  const emailAddress = "growthwithmba@gmail.com";
+  const rawWhatsApp = "+923212594511";
+  const displayWhatsApp = "+92 321 2594511";
+
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#0c0c0e]">
+    <section id="contact" className="py-28 relative overflow-hidden bg-[#0c0c0e]">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-r from-indigo-600/15 via-cyan-500/10 to-emerald-500/15 blur-[160px] rounded-full pointer-events-none" />
 
@@ -63,7 +68,7 @@ export const Contact = () => {
                   size="lg"
                   icon={Calendar}
                   onClick={() => {
-                    window.open("mailto:m.binamir@growthwithmba.com?subject=Discovery%20Call%20Inquiry", "_blank");
+                    window.open(`mailto:${emailAddress}?subject=Discovery%20Call%20Inquiry`, "_blank");
                   }}
                   className="w-full text-base py-3.5 shadow-emerald-500/30"
                 >
@@ -76,7 +81,7 @@ export const Contact = () => {
                     size="md"
                     icon={Mail}
                     onClick={() => {
-                      window.open("mailto:m.binamir@growthwithmba.com", "_blank");
+                      window.open(`mailto:${emailAddress}`, "_blank");
                     }}
                     className="w-full text-xs"
                   >
@@ -88,11 +93,11 @@ export const Contact = () => {
                     size="md"
                     icon={Send}
                     onClick={() => {
-                      window.open("https://wa.me/?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20growth%20project.", "_blank");
+                      window.open(`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20growth%20project.`, "_blank");
                     }}
-                    className="w-full text-xs hover:border-emerald-500/40"
+                    className="w-full text-xs hover:border-emerald-500/40 text-emerald-400"
                   >
-                    WhatsApp
+                    WhatsApp Chat
                   </Button>
 
                   <Button
@@ -141,24 +146,36 @@ export const Contact = () => {
               </div>
 
               <div className="space-y-3">
-                <div className="p-3 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
-                  <div className="text-[11px] font-mono text-zinc-500 uppercase">Direct Email</div>
+                {/* Direct Email Card */}
+                <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
+                  <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-indigo-400" /> Direct Email
+                  </div>
                   <a
-                    href="mailto:m.binamir@growthwithmba.com"
-                    className="text-sm font-semibold text-white hover:text-indigo-400 transition-colors block"
+                    href={`mailto:${emailAddress}`}
+                    className="text-sm font-semibold text-white hover:text-indigo-400 transition-colors block font-mono"
                   >
-                    m.binamir@growthwithmba.com
+                    {emailAddress}
                   </a>
                 </div>
 
-                <div className="p-3 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
-                  <div className="text-[11px] font-mono text-zinc-500 uppercase">Core Specialties</div>
-                  <div className="text-xs text-zinc-300 font-medium">
-                    Meta Ads • AI Automations • Lovable & Antigravity AI Products
+                {/* Direct WhatsApp Card */}
+                <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
+                  <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
+                    <PhoneCall className="w-3.5 h-3.5 text-emerald-400" /> WhatsApp Contact
                   </div>
+                  <a
+                    href={`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20growth%20project.`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors block font-mono"
+                  >
+                    {displayWhatsApp}
+                  </a>
                 </div>
 
-                <div className="p-3 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
+                {/* Availability Status */}
+                <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
                   <div className="text-[11px] font-mono text-zinc-500 uppercase">Availability</div>
                   <div className="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5" /> Open for Selected Client Accounts
