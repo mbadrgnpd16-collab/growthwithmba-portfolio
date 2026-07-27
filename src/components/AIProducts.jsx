@@ -115,7 +115,7 @@ export const AIProducts = () => {
           badgeIcon={Cpu}
           title="Technical Projects."
           highlightText="Additional Capabilities."
-          description="Additional software platforms, tools, and technical prototypes built to streamline business workflows."
+          description="Beyond marketing, I build AI-powered tools and digital systems that improve workflows, automate processes, and solve practical business problems."
         />
 
         {/* Products Grid */}

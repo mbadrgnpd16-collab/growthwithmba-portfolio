@@ -7,41 +7,76 @@ import {
   TrendingUp,
   Cpu,
   Layers,
-  Sparkles
+  Sparkles,
+  Wrench
 } from "lucide-react";
 
 export const TechStack = () => {
   const categories = [
     {
-      title: "Primary Growth & Creative Skills",
-      categoryBadge: "Core Competence",
+      title: "Marketing & Growth",
+      categoryBadge: "Core Services",
       icon: TrendingUp,
       accent: "text-indigo-400 border-indigo-500/30 bg-indigo-500/10",
       skills: [
         "Social Media Management",
         "Instagram Growth",
-        "Meta Advertising",
+        "Meta Ads",
         "Content Strategy",
-        "Content Planning",
-        "Community Management",
+        "Brand Growth",
         "Analytics",
+        "Content Planning",
+        "Content Calendars",
+        "Community Management",
+        "Audience Research",
+        "Brand Positioning",
         "Copywriting",
-        "Canva",
-        "CapCut",
-        "Adobe Premiere Pro",
+        "Facebook & Instagram Ads",
+        "Lead Generation Campaigns",
+        "Performance Marketing",
+        "Conversion Optimization",
+        "Competitor Analysis"
       ],
     },
     {
-      title: "Secondary Technical & AI Capabilities",
-      categoryBadge: "Execution Speed",
+      title: "AI & Automation",
+      categoryBadge: "Competitive Advantage",
       icon: Cpu,
       accent: "text-cyan-400 border-cyan-500/30 bg-cyan-500/10",
       skills: [
+        "AI Workflows",
+        "Prompt Engineering",
+        "AI Tools",
+        "Automation Systems",
+        "AI Product Development",
+        "AI Workflow Design",
+        "AI-Powered Content Systems",
+        "AI Research & Strategy",
+        "AI Tool Integration",
+        "AI-Assisted Marketing Workflows",
+        "Custom AI Solutions"
+      ],
+    },
+    {
+      title: "Tools & Platforms",
+      categoryBadge: "Software Stack",
+      icon: Wrench,
+      accent: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
+      skills: [
         "ChatGPT",
         "Claude",
+        "Gemini",
+        "Google AI Studio",
         "Lovable",
         "Antigravity",
+        "Vercel",
         "Supabase",
+        "Replit",
+        "GitHub",
+        "Notion",
+        "Make.com / Zapier",
+        "Canva",
+        "CapCut"
       ],
     },
   ];
@@ -55,16 +90,16 @@ export const TechStack = () => {
         
         {/* Section Header */}
         <SectionHeader
-          badge="SKILLS & TECH STACK"
+          badge="SKILLS & AI CAPABILITIES"
           badgeVariant="live"
           badgeIcon={Layers}
           title="Skills & Curated"
           highlightText="Expertise."
-          description="Curated execution capabilities and tools utilized to scale brand traffic and engagement for international partners."
+          description="A strategic capability stack combining social media management and performance marketing with advanced AI & automation workflows."
         />
 
-        {/* 2 Category Stack Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* 3 Category Stack Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {categories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
@@ -74,8 +109,9 @@ export const TechStack = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="flex"
               >
-                <Card hover={true} className="h-full border-zinc-800/90 hover:border-indigo-500/40">
+                <Card hover={true} className="h-full w-full border-zinc-800/90 hover:border-indigo-500/40 flex flex-col justify-between">
                   <div className="space-y-6">
                     
                     {/* Category Header */}
