@@ -5,73 +5,43 @@ import { Card } from "./ui/Card";
 import { Badge } from "./ui/Badge";
 import {
   TrendingUp,
-  Bot,
-  Code2,
-  Video,
-  Sparkles,
-  Layers,
   Cpu,
-  Target,
-  FileCode,
-  Wand2
+  Layers,
+  Sparkles
 } from "lucide-react";
 
 export const TechStack = () => {
   const categories = [
     {
-      title: "Marketing & Growth",
-      categoryBadge: "Acquisition",
+      title: "Primary Growth & Creative Skills",
+      categoryBadge: "Core Competence",
       icon: TrendingUp,
       accent: "text-indigo-400 border-indigo-500/30 bg-indigo-500/10",
       skills: [
-        "Meta Ads Manager",
-        "Growth Marketing",
-        "Performance Marketing",
-        "Brand Strategy",
+        "Social Media Management",
+        "Instagram Growth",
+        "Meta Advertising",
         "Content Strategy",
-        "Direct-Response Copywriting",
+        "Content Planning",
+        "Community Management",
+        "Analytics",
+        "Copywriting",
+        "Canva",
+        "CapCut",
+        "Adobe Premiere Pro",
       ],
     },
     {
-      title: "AI & Automations",
-      categoryBadge: "AI Intelligence",
-      icon: Bot,
+      title: "Secondary Technical & AI Capabilities",
+      categoryBadge: "Execution Speed",
+      icon: Cpu,
       accent: "text-cyan-400 border-cyan-500/30 bg-cyan-500/10",
       skills: [
-        "ChatGPT & OpenAI API",
-        "Claude API",
-        "Prompt Engineering",
-        "AI Workflow Automation",
-        "Custom GPT Assistants",
-        "LLM Integration",
-      ],
-    },
-    {
-      title: "Development Platforms",
-      categoryBadge: "Product Stack",
-      icon: Code2,
-      accent: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
-      skills: [
-        "Antigravity Framework",
-        "Lovable Platform",
-        "Supabase Backend",
-        "React & HTML5/JS",
-        "Tailwind CSS v4",
-        "PostgreSQL & REST APIs",
-      ],
-    },
-    {
-      title: "Creative & Media",
-      categoryBadge: "Visual Assets",
-      icon: Video,
-      accent: "text-amber-400 border-amber-500/30 bg-amber-500/10",
-      skills: [
-        "Canva Pro",
-        "CapCut Video Editor",
-        "Filmora Suite",
-        "Ad Creative Hooks",
-        "Short-Form Video Production",
-        "Visual Branding Assets",
+        "ChatGPT",
+        "Claude",
+        "Lovable",
+        "Antigravity",
+        "Supabase",
       ],
     },
   ];
@@ -88,12 +58,12 @@ export const TechStack = () => {
           badge="SKILLS & TECH STACK"
           badgeVariant="live"
           badgeIcon={Layers}
-          title="Tools & Technologies That Drive"
-          highlightText="Growth & AI Execution."
-          description="A curated tech stack combining battle-tested growth marketing tools with modern AI development platforms."
+          title="Skills & Curated"
+          highlightText="Expertise."
+          description="Curated execution capabilities and tools utilized to scale brand traffic and engagement for international partners."
         />
 
-        {/* 4 Category Stack Grid */}
+        {/* 2 Category Stack Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {categories.map((cat, idx) => {
             const Icon = cat.icon;
@@ -115,7 +85,7 @@ export const TechStack = () => {
                           <Icon className="w-5 h-5" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-extrabold text-white tracking-tight">
+                          <h3 className="text-lg font-extrabold text-white tracking-tight">
                             {cat.title}
                           </h3>
                         </div>

@@ -21,9 +21,9 @@ export const AIProducts = () => {
   const products = [
     {
       id: "finance-tracker",
-      title: "AI Finance & Expense Tracker",
+      title: "Finance & Expense Tracker",
       platform: "Antigravity Framework",
-      category: "AI Financial Software",
+      category: "Financial System Prototype",
       badgeVariant: "ai",
       icon: Wallet,
       problemSolved:
@@ -43,13 +43,13 @@ export const AIProducts = () => {
       id: "mukaf-site",
       title: "Mukaf Brand Web Application",
       platform: "Lovable Platform",
-      category: "AI Web Platform",
+      category: "Web Application",
       badgeVariant: "live",
       icon: Globe,
       problemSolved:
         "Traditional web design agencies take months to build high-converting brand sites, leading to delayed product launches.",
       buildApproach:
-        "Engineered rapidly on the Lovable AI platform, combining obsidian glassmorphism UI components with conversion-first page structures.",
+        "Engineered rapidly on the Lovable platform, combining obsidian glassmorphism UI components with conversion-first page structures.",
       features: [
         "Sleek obsidian glassmorphism design system",
         "Mobile-optimized conversion funnels",
@@ -63,7 +63,7 @@ export const AIProducts = () => {
       id: "medicine-app",
       title: "Medicine Inventory App",
       platform: "Lovable + Supabase",
-      category: "Full-Stack AI App",
+      category: "Full-Stack App",
       badgeVariant: "cyan",
       icon: Database,
       problemSolved:
@@ -83,17 +83,17 @@ export const AIProducts = () => {
       id: "mba-os",
       title: "MBA OS (Growth Operating System)",
       platform: "Lovable + Supabase",
-      category: "AI Operating System",
+      category: "Operating System Dashboard",
       badgeVariant: "metric",
       icon: LayoutDashboard,
       problemSolved:
-        "Managing client acquisition, Meta ad metrics, and AI prompt workflows across multiple tools creates operational friction.",
+        "Managing client acquisition, Meta ad metrics, and content workflows across multiple tools creates operational friction.",
       buildApproach:
         "Designed a centralized personal operating dashboard using Lovable frontend components connected to Supabase and Claude API endpoints.",
       features: [
         "Centralized client CRM & pipeline manager",
         "Automated Meta campaign metric tracking",
-        "Integrated Claude & ChatGPT prompt workspace",
+        "Integrated AI prompt workspace",
         "Task execution & project milestone board",
       ],
       technologies: ["Lovable", "Supabase", "Claude API", "Tailwind CSS"],
@@ -110,12 +110,12 @@ export const AIProducts = () => {
         
         {/* Section Header */}
         <SectionHeader
-          badge="AI PRODUCTS & SOFTWARE"
+          badge="TECHNICAL PROJECTS"
           badgeVariant="ai"
           badgeIcon={Cpu}
-          title="AI Products I've Built."
-          highlightText="Deployed & Functional."
-          description="Production-ready software and custom web applications engineered using modern AI development platforms."
+          title="Technical Projects."
+          highlightText="Additional Capabilities."
+          description="Additional software platforms, tools, and technical prototypes built to streamline business workflows."
         />
 
         {/* Products Grid */}
@@ -187,8 +187,8 @@ export const AIProducts = () => {
                       </div>
 
                       <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 pt-1 border-t border-zinc-800/60">
-                        <span>Status: Production Ready</span>
-                        <span className="text-emerald-400 font-semibold">100% Deployed</span>
+                        <span>Status: Operational Prototype</span>
+                        <span className="text-emerald-400 font-semibold">100% Functional</span>
                       </div>
                     </div>
 
@@ -205,7 +205,7 @@ export const AIProducts = () => {
 
                       <div className="space-y-1">
                         <span className="text-[11px] font-mono uppercase tracking-wider text-indigo-400 font-bold flex items-center gap-1.5">
-                          <Wrench className="w-3.5 h-3.5" /> Build Approach
+                          <Wrench className="w-3.5 h-3.5" /> Technical Approach
                         </span>
                         <p className="text-zinc-300 leading-relaxed text-xs">
                           {product.buildApproach}
@@ -215,7 +215,7 @@ export const AIProducts = () => {
                       {/* Key Features */}
                       <div className="space-y-1.5 pt-2 border-t border-zinc-800/80">
                         <span className="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-bold block">
-                          Core Product Features
+                          Core System Features
                         </span>
                         <div className="space-y-1.5">
                           {product.features.map((feat, i) => (
@@ -231,7 +231,7 @@ export const AIProducts = () => {
                     {/* Technologies Used */}
                     <div className="space-y-1.5 pt-2 border-t border-zinc-800/80">
                       <span className="text-[11px] font-mono text-zinc-500 uppercase">
-                        Product Stack
+                        Tech Stack
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {product.technologies.map((tech) => (
@@ -250,7 +250,7 @@ export const AIProducts = () => {
                   {/* Card Footer CTA */}
                   <div className="pt-6 mt-6 border-t border-zinc-800/80 flex items-center justify-between relative z-10">
                     <span className="text-xs font-mono text-zinc-500">
-                      AI Product
+                      Technical Showcase
                     </span>
                     <Button
                       variant="ghost"
@@ -262,7 +262,7 @@ export const AIProducts = () => {
                       }}
                       className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/40"
                     >
-                      Request Product Demo
+                      Request Code Audit
                     </Button>
                   </div>
 

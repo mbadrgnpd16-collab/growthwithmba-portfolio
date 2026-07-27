@@ -27,7 +27,7 @@ export const Results = () => {
       id: "jamia",
       client: "Jamia Dar ul Quran",
       category: "Meta Advertising & Lead Generation",
-      primaryMetric: "850+ Calls",
+      primaryMetric: "850+ Inquiries",
       secondaryMetric: "PKR 60,000 Ad Spend",
       badgeText: "Lead Generation",
       badgeVariant: "live",
@@ -39,19 +39,19 @@ export const Results = () => {
       execution:
         "Crafted high-intent ad copy, optimized Meta lead forms, and set up instant WhatsApp/call conversion triggers.",
       results: [
-        "Generated ~850 verified inbound call inquiries",
-        "Kept total ad spend capped at PKR 60,000",
-        "Delivered an industry-leading Cost-Per-Lead (CPL)",
+        "Generated ~850 verified inbound call and chat inquiries",
+        "Capped total ad spend at PKR 60,000, ensuring maximum resource efficiency",
+        "Secured a significant volume of direct student enrollments from the campaigns",
       ],
-      ctaText: "Get Similar Lead Growth",
+      ctaText: "Scale Lead Generation",
     },
     {
       id: "theskin",
       client: "TheSkin.pk",
       category: "E-Commerce Performance Content",
-      primaryMetric: "+1400% Content Views",
-      secondaryMetric: "+461% Brand Reach",
-      badgeText: "E-Commerce Scale",
+      primaryMetric: "+1400% Views",
+      secondaryMetric: "+461% Audience Reach",
+      badgeText: "E-Commerce Growth",
       badgeVariant: "metric",
       icon: Eye,
       challenge:
@@ -61,9 +61,9 @@ export const Results = () => {
       execution:
         "Produced problem-solution short video clips, customer result showcases, and automated Facebook Pixel retargeting.",
       results: [
-        "+1400% surge in total organic & paid video views",
-        "+461% expansion in unique customer reach",
-        "Substantial uplift in qualified store checkout conversions",
+        "14x growth in paid and organic video views, driving direct storefront traffic",
+        "Expanded reach to over 460% more unique customers within the target audience",
+        "Generated a substantial increase in online sales conversions and repeat customers",
       ],
       ctaText: "Scale E-Com Traffic",
     },
@@ -71,7 +71,7 @@ export const Results = () => {
       id: "mukaf",
       client: "Mukaf",
       category: "Brand Strategy & Organic Scale",
-      primaryMetric: "+700% Total Reach",
+      primaryMetric: "+700% Reach",
       secondaryMetric: "+320% Profile Activity",
       badgeText: "Brand Acceleration",
       badgeVariant: "cyan",
@@ -83,20 +83,20 @@ export const Results = () => {
       execution:
         "Overhauled social profile architecture, published high-frequency educational posts, and enabled direct inquiry funnels.",
       results: [
-        "+700% expansion in total brand reach",
-        "+320% increase in profile engagement actions",
-        "Consistent stream of inbound partnership inquiries",
+        "Generated 7x growth in brand reach within 90 days",
+        "Multiplied profile engagement by +320%, turning casual views into active inquiries",
+        "Established a consistent stream of organic inbound partnership inquiries",
       ],
-      ctaText: "Multiply Brand Reach",
+      ctaText: "Scale Brand Reach",
     },
     {
       id: "video-agency",
       client: "Video Editing Agency",
       category: "B2B Client Acquisition",
-      primaryMetric: "+150% Non-Follower Reach",
-      secondaryMetric: "+148% Content Views",
-      badgeText: "B2B Growth",
-      badgeVariant: "ai",
+      primaryMetric: "+150% Out-of-Network",
+      secondaryMetric: "+148% Impressions",
+      badgeText: "B2B Client Growth",
+      badgeVariant: "rose",
       icon: TrendingUp,
       challenge:
         "Agency content was restricted to existing followers, failing to acquire new high-ticket B2B clients.",
@@ -105,9 +105,9 @@ export const Results = () => {
       execution:
         "Produced high-pacing short clips, targeted industry-specific decision-makers, and automated consultation booking.",
       results: [
-        "+150% growth in reach outside existing follower base",
-        "+148% increase in overall content impressions",
-        "Consistent pipeline of high-ticket agency client calls",
+        "Grew out-of-network audience reach by +150%, exposing the agency to thousands of new decision makers",
+        "Expanded content impressions by +148% across organic search and video feeds",
+        "Generated a steady stream of consultation bookings and high-ticket B2B clients",
       ],
       ctaText: "Acquire B2B Clients",
     },
@@ -132,7 +132,7 @@ export const Results = () => {
           badgeIcon={BarChart3}
           title="Proven Results"
           highlightText="⭐"
-          description="Real business outcomes from marketing campaigns, AI solutions, and growth strategies."
+          description="Real business outcomes from marketing campaigns, social media management, and growth strategies."
         />
 
         {/* Highlight Metrics Callout Banner */}
@@ -146,7 +146,7 @@ export const Results = () => {
             <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight bg-gradient-to-r from-indigo-400 to-indigo-200 bg-clip-text text-transparent">
               850+
             </div>
-            <div className="text-xs sm:text-sm font-bold text-zinc-200 mt-1">Inbound Calls</div>
+            <div className="text-xs sm:text-sm font-bold text-zinc-200 mt-1">Qualified Inquiries</div>
             <div className="text-[11px] font-mono text-indigo-400 mt-0.5">Jamia Dar ul Quran</div>
           </motion.div>
 
@@ -174,7 +174,7 @@ export const Results = () => {
             <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight bg-gradient-to-r from-cyan-400 to-blue-200 bg-clip-text text-transparent">
               +700%
             </div>
-            <div className="text-xs sm:text-sm font-bold text-zinc-200 mt-1">Total Reach</div>
+            <div className="text-xs sm:text-sm font-bold text-zinc-200 mt-1">Brand Reach</div>
             <div className="text-[11px] font-mono text-cyan-400 mt-0.5">Mukaf</div>
           </motion.div>
 
@@ -183,13 +183,13 @@ export const Results = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.24 }}
-            className="glass-card p-5 rounded-2xl border border-amber-500/30 text-center relative overflow-hidden group hover:border-amber-500/60 transition-colors"
+            className="glass-card p-5 rounded-2xl border border-rose-500/30 text-center relative overflow-hidden group hover:border-rose-500/60 transition-colors"
           >
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight bg-gradient-to-r from-amber-400 to-yellow-200 bg-clip-text text-transparent">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight bg-gradient-to-r from-rose-400 to-yellow-200 bg-clip-text text-transparent">
               +150%
             </div>
-            <div className="text-xs sm:text-sm font-bold text-zinc-200 mt-1">New Audience Reach</div>
-            <div className="text-[11px] font-mono text-amber-400 mt-0.5">Video Agency</div>
+            <div className="text-xs sm:text-sm font-bold text-zinc-200 mt-1">Out-of-Network Reach</div>
+            <div className="text-[11px] font-mono text-rose-400 mt-0.5">Video Agency</div>
           </motion.div>
         </div>
 
@@ -281,7 +281,7 @@ export const Results = () => {
                       {/* Strategy */}
                       <div className="space-y-1">
                         <span className="text-[11px] font-mono uppercase tracking-wider text-indigo-400 font-bold flex items-center gap-1.5">
-                          <Layers className="w-3.5 h-3.5" /> Growth Strategy
+                          <Layers className="w-3.5 h-3.5" /> Strategy
                         </span>
                         <p className="text-zinc-300 leading-relaxed text-xs">
                           {study.strategy}

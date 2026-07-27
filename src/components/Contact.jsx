@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
 import {
   MessageSquare,
-  Calendar,
   Mail,
   Send,
   CheckCircle2,
@@ -15,10 +14,67 @@ import {
   PhoneCall
 } from "lucide-react";
 
+// REPLACE THIS with your actual Formspree Form ID/Endpoint
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpznjepg"; 
+
 export const Contact = () => {
   const emailAddress = "growthwithmba@gmail.com";
-  const rawWhatsApp = "+923212594511";
   const displayWhatsApp = "+92 321 2594511";
+  
+  const [formState, setFormState] = useState({
+    name: "",
+    businessName: "",
+    email: "",
+    instagramHandle: "",
+    website: "",
+    businessGoal: "",
+    message: ""
+  });
+  
+  const [status, setStatus] = useState("idle"); // idle, submitting, success, error
+
+  const handleChange = (e) => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          ...formState,
+          _subject: `New Social Media Audit Request from ${formState.name}`
+        })
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormState({
+          name: "",
+          businessName: "",
+          email: "",
+          instagramHandle: "",
+          website: "",
+          businessGoal: "",
+          message: ""
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+  };
 
   return (
     <section id="contact" className="py-28 relative overflow-hidden bg-[#0c0c0e]">
@@ -32,98 +88,193 @@ export const Contact = () => {
           badge="GET IN TOUCH"
           badgeVariant="live"
           badgeIcon={MessageSquare}
-          title="Ready to Scale Your Business with"
-          highlightText="AI & Growth Systems?"
-          description="Whether you need Meta ad campaigns that deliver qualified leads or custom AI tools that automate operations, let's map out a strategy."
+          title="Let's Grow Your Brand."
+          highlightText=""
+          description="Whether you're looking for consistent social media management, stronger Instagram growth, or better-performing campaigns, I'd love to learn more about your business and how I can help."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
           
-          {/* Left Column: Direct Action Buttons & Messaging */}
+          {/* Left Column: Formspree Audit Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-6 w-full"
           >
-            <div className="glass-card p-8 rounded-3xl border border-indigo-500/30 space-y-6 relative overflow-hidden">
-              
-              <div className="space-y-3">
-                <Badge variant="live" ping>
-                  Direct Booking Open
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-indigo-500/35 relative overflow-hidden">
+              <div className="mb-6">
+                <Badge variant="live" ping className="mb-2">
+                  Free Assessment
                 </Badge>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  Book a Free 30-Minute Growth Strategy Call
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                  Get Your Free Social Media Audit
                 </h3>
-                <p className="text-sm text-zinc-300 leading-relaxed">
-                  We'll evaluate your current acquisition channels, identify AI automation opportunities, and outline a clear action plan for your business.
+                <p className="text-xs text-zinc-400 mt-1">
+                  Fill out the form below, and I will analyze your current presence and send you a custom growth roadmap.
                 </p>
               </div>
 
-              {/* Action Buttons */}
-              <div className="space-y-3 pt-2">
-                <Button
-                  variant="emerald"
-                  size="lg"
-                  icon={Calendar}
-                  onClick={() => {
-                    window.open(`mailto:${emailAddress}?subject=Discovery%20Call%20Inquiry`, "_blank");
-                  }}
-                  className="w-full text-base py-3.5 shadow-emerald-500/30"
+              {status === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3"
                 >
-                  Book a Free Discovery Call
-                </Button>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <Button
-                    variant="secondary"
-                    size="md"
-                    icon={Mail}
-                    onClick={() => {
-                      window.open(`mailto:${emailAddress}`, "_blank");
-                    }}
-                    className="w-full text-xs"
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto">
+                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-lg font-bold text-white">Audit Request Received!</h4>
+                  <p className="text-xs text-zinc-300">
+                    Thanks! I've received your request and will get back to you within 24 hours.
+                  </p>
+                  <button
+                    onClick={() => setStatus("idle")}
+                    className="text-xs text-indigo-400 hover:text-indigo-300 font-mono underline cursor-pointer"
                   >
-                    Email Me
+                    Submit another response
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                        Full Name <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formState.name}
+                        onChange={handleChange}
+                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                        Business Name <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="businessName"
+                        required
+                        value={formState.businessName}
+                        onChange={handleChange}
+                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="My Agency Ltd"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                        Business Email <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formState.email}
+                        onChange={handleChange}
+                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                        Instagram Handle <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="instagramHandle"
+                        required
+                        value={formState.instagramHandle}
+                        onChange={handleChange}
+                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="@mybrand"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                      Website URL <span className="text-zinc-600">(Optional)</span>
+                    </label>
+                    <input
+                      type="url"
+                      name="website"
+                      value={formState.website}
+                      onChange={handleChange}
+                      className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                      placeholder="https://example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                      What is your primary business goal? <span className="text-rose-500">*</span>
+                    </label>
+                    <select
+                      name="businessGoal"
+                      required
+                      value={formState.businessGoal}
+                      onChange={handleChange}
+                      className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-300 focus:outline-none focus:border-indigo-500 transition-colors"
+                    >
+                      <option value="" disabled>Select a goal...</option>
+                      <option value="Increase Brand Reach">Increase Brand Reach</option>
+                      <option value="Generate Inquiries & Leads">Generate Inquiries & Leads</option>
+                      <option value="Grow Instagram Followers">Grow Instagram Followers</option>
+                      <option value="Scale E-Commerce Store Sales">Scale E-Commerce Store Sales</option>
+                      <option value="B2B Client Acquisition">B2B Client Acquisition</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                      Message / Additional Notes
+                    </label>
+                    <textarea
+                      name="message"
+                      rows="3"
+                      value={formState.message}
+                      onChange={handleChange}
+                      className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                      placeholder="Tell me about your product or service..."
+                    />
+                  </div>
+
+                  <Button
+                    variant="emerald"
+                    size="lg"
+                    type="submit"
+                    className="w-full mt-2"
+                    disabled={status === "submitting"}
+                  >
+                    {status === "submitting" ? "Submitting..." : "Get My Free Social Media Audit"}
                   </Button>
 
-                  <Button
-                    variant="secondary"
-                    size="md"
-                    icon={Send}
-                    onClick={() => {
-                      window.open(`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20growth%20project.`, "_blank");
-                    }}
-                    className="w-full text-xs hover:border-emerald-500/40 text-emerald-400"
-                  >
-                    WhatsApp Chat
-                  </Button>
-
-                  <Button
-                    variant="outline"
-                    size="md"
-                    icon={Globe}
-                    onClick={() => {
-                      window.open("https://linkedin.com", "_blank");
-                    }}
-                    className="w-full text-xs hover:border-indigo-500/40"
-                  >
-                    LinkedIn
-                  </Button>
-                </div>
-              </div>
+                  {status === "error" && (
+                    <p className="text-center text-xs text-rose-400 font-mono mt-2">
+                      Something went wrong. Please try again or email growthwithmba@gmail.com directly.
+                    </p>
+                  )}
+                </form>
+              )}
 
               {/* Trust Features */}
-              <div className="pt-4 border-t border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-400 font-medium">
+              <div className="pt-4 mt-6 border-t border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-400 font-medium">
                 <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-emerald-400" /> Guaranteed response within 24h
+                  <Clock className="w-4 h-4 text-emerald-400" /> Audit delivered within 48 hours
                 </span>
                 <span className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-indigo-400" /> Confidential strategy discussion
+                  <ShieldCheck className="w-4 h-4 text-indigo-400" /> 100% confidential brand analysis
                 </span>
               </div>
-
             </div>
           </motion.div>
 
@@ -133,7 +284,7 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 w-full"
           >
             <div className="glass-card rounded-3xl p-6 sm:p-8 border border-zinc-700/60 shadow-2xl relative space-y-6">
               
@@ -165,7 +316,7 @@ export const Contact = () => {
                     <PhoneCall className="w-3.5 h-3.5 text-emerald-400" /> WhatsApp Contact
                   </div>
                   <a
-                    href={`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20growth%20project.`}
+                    href={`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20social%20media%20audit.`}
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors block font-mono"
@@ -174,17 +325,24 @@ export const Contact = () => {
                   </a>
                 </div>
 
-                {/* Availability Status */}
+                {/* Direct LinkedIn Card */}
                 <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
-                  <div className="text-[11px] font-mono text-zinc-500 uppercase">Availability</div>
-                  <div className="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Open for Selected Client Accounts
+                  <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
+                    <Globe className="w-3.5 h-3.5 text-blue-400" /> Professional Network
                   </div>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-semibold text-white hover:text-indigo-400 transition-colors block font-mono"
+                  >
+                    LinkedIn Profile
+                  </a>
                 </div>
               </div>
 
               <div className="pt-2 text-center text-xs font-mono text-zinc-500">
-                AI Growth Marketer • AI Product Builder
+                SMM • Growth Marketer • Meta Ads
               </div>
 
             </div>

@@ -23,9 +23,9 @@ export const Navbar = () => {
   const navLinks = [
     { name: "Results", href: "#results" },
     { name: "Services", href: "#services" },
-    { name: "AI Products", href: "#ai-products" },
     { name: "About", href: "#about" },
     { name: "Process", href: "#process" },
+    { name: "Projects", href: "#ai-products" },
   ];
 
   return (
@@ -83,7 +83,7 @@ export const Navbar = () => {
               if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Book Discovery Call
+            Get Free Audit
           </Button>
         </div>
 
@@ -134,7 +134,7 @@ export const Navbar = () => {
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Book a Free Discovery Call
+                Get Free Audit
               </Button>
             </div>
           </motion.div>

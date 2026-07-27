@@ -4,7 +4,6 @@ import { Hero } from "./components/Hero";
 import { Results } from "./components/Results";
 import { About } from "./components/About";
 import { Services } from "./components/Services";
-import { FeaturedProjects } from "./components/FeaturedProjects";
 import { AIProducts } from "./components/AIProducts";
 import { TechStack } from "./components/TechStack";
 import { Process } from "./components/Process";
@@ -23,10 +22,9 @@ export default function App() {
         <Results />
         <About />
         <Services />
-        <FeaturedProjects />
-        <AIProducts />
         <TechStack />
         <Process />
+        <AIProducts />
         <Contact />
       </main>
 

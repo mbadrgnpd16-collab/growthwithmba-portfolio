@@ -19,7 +19,7 @@ export const Footer = () => {
           {/* Brand Info */}
           <div className="md:col-span-6 space-y-4">
             <a href="#" className="flex items-center gap-2.5 group inline-flex">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/25">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform">
                 <Sparkles className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
@@ -33,7 +33,7 @@ export const Footer = () => {
             </a>
 
             <p className="text-xs sm:text-sm text-zinc-400 max-w-md leading-relaxed">
-              AI Growth Marketer & AI Product Builder. I help startups, founders, and scaling businesses turn attention into measurable revenue.
+              Helping businesses grow through strategic social media management and performance marketing.
             </p>
           </div>
 
@@ -45,21 +45,20 @@ export const Footer = () => {
               </div>
               <ul className="space-y-2">
                 <li><a href="#results" className="hover:text-white transition-colors">Proven Results</a></li>
-                <li><a href="#about" className="hover:text-white transition-colors">About Me</a></li>
                 <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-                <li><a href="#projects" className="hover:text-white transition-colors">Featured Projects</a></li>
+                <li><a href="#about" className="hover:text-white transition-colors">About Me</a></li>
+                <li><a href="#process" className="hover:text-white transition-colors">Process</a></li>
               </ul>
             </div>
 
             <div className="space-y-2.5">
               <div className="font-mono text-zinc-300 font-semibold uppercase tracking-wider">
-                Products & Process
+                Capabilities
               </div>
               <ul className="space-y-2">
-                <li><a href="#ai-products" className="hover:text-white transition-colors">AI Products</a></li>
-                <li><a href="#stack" className="hover:text-white transition-colors">Tech Stack</a></li>
-                <li><a href="#process" className="hover:text-white transition-colors">My Process</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact Call</a></li>
+                <li><a href="#stack" className="hover:text-white transition-colors">Skills</a></li>
+                <li><a href="#ai-products" className="hover:text-white transition-colors">Technical Projects</a></li>
+                <li><a href="#contact" className="hover:text-white transition-colors">Free Audit</a></li>
               </ul>
             </div>
 
@@ -69,7 +68,7 @@ export const Footer = () => {
               </div>
               <ul className="space-y-2">
                 <li><a href={`mailto:${emailAddress}`} className="hover:text-white transition-colors">Email Direct</a></li>
-                <li><a href={whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp (+92 321 2594511)</a></li>
+                <li><a href={whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp Direct</a></li>
                 <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
               </ul>
             </div>

@@ -1,113 +1,135 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./ui/SectionHeader";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/Card";
+import { Card, CardTitle, CardDescription } from "./ui/Card";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
 import {
   TrendingUp,
   Target,
-  Bot,
-  Cpu,
   Zap,
   CheckCircle2,
   ArrowRight,
   Sparkles,
   Layers,
-  Calendar
+  Calendar,
+  BookOpen
 } from "lucide-react";
+
+const InstagramIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 export const Services = () => {
   const servicesList = [
     {
-      id: "growth-marketing",
-      title: "Growth Marketing Strategy",
-      badge: "Acquisition Funnels",
+      id: "smm",
+      title: "Social Media Management",
+      badge: "Brand Growth",
       badgeVariant: "live",
-      icon: TrendingUp,
+      icon: Layers,
       accentBg: "bg-indigo-500/10 border-indigo-500/30 text-indigo-400",
       description:
-        "Designing data-backed user acquisition and retention funnels that scale customer revenue predictably without burning capital.",
+        "Complete organic management of your brand's social media platforms to increase visibility, engagement, and consistent content output.",
       deliverables: [
-        "Full-Funnel Growth Architecture",
-        "Conversion Rate Optimization (CRO)",
-        "Multi-Channel Attribution & Analytics",
-        "Market & Competitor Positioning Audit",
+        "Monthly Content Management",
+        "Content Scheduling",
+        "Community Management",
+        "Profile Optimization",
+        "Monthly Reporting",
       ],
       expectedOutcome:
-        "Lower Customer Acquisition Cost (CAC) and predictable month-over-month revenue growth.",
+        "A polished, active online presence that builds brand credibility and organic reach.",
     },
     {
-      id: "meta-advertising",
+      id: "instagram-growth",
+      title: "Instagram Growth",
+      badge: "Organic Reach",
+      badgeVariant: "cyan",
+      icon: InstagramIcon,
+      accentBg: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400",
+      description:
+        "Targeted organic growth strategies designed to expand your Instagram footprint and attract high-value followers.",
+      deliverables: [
+        "Organic Growth Strategy",
+        "Audience Research",
+        "Competitor Analysis",
+        "Engagement Strategy",
+        "Growth Planning",
+      ],
+      expectedOutcome:
+        "A growing, highly targeted follower base that actively interacts with your brand.",
+    },
+    {
+      id: "content-strategy",
+      title: "Content Strategy",
+      badge: "Creative Pillars",
+      badgeVariant: "default",
+      icon: BookOpen,
+      accentBg: "bg-purple-500/10 border-purple-500/30 text-purple-400",
+      description:
+        "Blueprint development defining your content pillars, scheduling matrices, and engagement hooks to keep your audience hooked.",
+      deliverables: [
+        "Content Planning",
+        "Monthly Content Calendar",
+        "Caption Writing",
+        "Reel Strategy",
+        "Content Pillars",
+      ],
+      expectedOutcome:
+        "A strategic content engine that removes all guesswork and establishes clear brand authority.",
+    },
+    {
+      id: "meta-ads",
       title: "Meta Advertising",
-      badge: "High ROI Campaigns",
+      badge: "Paid Acquisition",
       badgeVariant: "metric",
       icon: Target,
       accentBg: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
       description:
-        "High-performance Facebook & Instagram ad campaigns engineered to turn targeted ad spend into qualified phone calls, leads, and sales.",
+        "Performance paid advertising campaigns designed to turn targeted ad spend into qualified inquiries, leads, and direct conversions.",
       deliverables: [
-        "Direct-Response Ad Copy & Creative Hooks",
-        "Lookalike & Interest Audience Modeling",
-        "Rapid A/B Creative & Angle Testing",
-        "Daily ROAS & Lead Cost Optimization",
+        "Facebook & Instagram Ads",
+        "Lead Generation Campaigns",
+        "Campaign Retargeting Setups",
+        "Ad Copy & Creative Direction",
+        "Campaign Performance Optimization",
       ],
       expectedOutcome:
-        "Maximum lead volume at ultra-low acquisition costs (e.g. 850+ calls generated on PKR 60k spend).",
+        "High conversion volume at lowest acquisition costs (850+ qualified inquiries generated).",
     },
     {
-      id: "ai-automation",
-      title: "AI Automation",
-      badge: "Operations Scale",
-      badgeVariant: "cyan",
-      icon: Bot,
-      accentBg: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400",
+      id: "brand-growth",
+      title: "Brand Growth Strategy",
+      badge: "Marketing Roadmap",
+      badgeVariant: "rose",
+      icon: TrendingUp,
+      accentBg: "bg-rose-500/10 border-rose-500/30 text-rose-400",
       description:
-        "Eliminating manual business bottlenecks by embedding intelligent custom AI workflows into your daily customer and team operations.",
+        "Complete high-level marketing roadmap establishing your brand positioning and visual content direction to win international clients.",
       deliverables: [
-        "Custom ChatGPT & Claude API Integrations",
-        "Automated Lead Qualification & Follow-ups",
-        "Operational Workflow Bottleneck Removal",
-        "CRM & Multi-App Data Synchronization",
+        "Brand Positioning Strategy",
+        "Visual Content Direction",
+        "Audience & Market Research",
+        "Strategic Marketing Roadmap",
       ],
       expectedOutcome:
-        "Savings of 20+ manual hours per week and 100% instant response time for incoming leads.",
-    },
-    {
-      id: "ai-product-dev",
-      title: "AI Product Development",
-      badge: "Rapid Web Apps",
-      badgeVariant: "ai",
-      icon: Cpu,
-      accentBg: "bg-amber-500/10 border-amber-500/30 text-amber-400",
-      description:
-        "Building production-ready web applications, SaaS tools, and internal platforms rapidly using modern AI development stacks.",
-      deliverables: [
-        "Antigravity & Lovable Web App Architecture",
-        "Supabase Database & Auth Integration",
-        "Custom AI Dashboards & User Interfaces",
-        "Cross-Device Responsive Deployment",
-      ],
-      expectedOutcome:
-        "Launching functional, revenue-generating AI web products in weeks instead of traditional dev months.",
-    },
-    {
-      id: "brand-content",
-      title: "Brand & Content Strategy",
-      badge: "Organic Distribution",
-      badgeVariant: "default",
-      icon: Zap,
-      accentBg: "bg-purple-500/10 border-purple-500/30 text-purple-400",
-      description:
-        "Engineering high-retention video content and sharp brand positioning that builds authority and sparks viral organic reach.",
-      deliverables: [
-        "Short-Form Video Hooks & Scripting",
-        "Brand Identity & Messaging Playbook",
-        "Organic Audience Engagement Triggers",
-        "Multi-Platform Content Distribution",
-      ],
-      expectedOutcome:
-        "Massive reach expansion (+1400% content view spikes) to consistently drive inbound customer inquiries.",
+        "Clear brand differentiation and a structured marketing blueprint designed for high-paying clients.",
     },
   ];
 
@@ -123,18 +145,15 @@ export const Services = () => {
           badge="GROWTH SERVICES"
           badgeVariant="live"
           badgeIcon={Layers}
-          title="Growth Systems &"
-          highlightText="AI Solutions."
-          description="Designed to solve critical business bottlenecks, lower acquisition costs, and build high-value digital assets."
+          title="Social Media &"
+          highlightText="Growth Services."
+          description="Designed to solve critical business bottlenecks, grow active social presence, and build high-value customer acquisition channels."
         />
 
         {/* 5 Core Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {servicesList.map((service, index) => {
             const Icon = service.icon;
-            // Make the 4th and 5th items span nicely or keep grid balanced
-            const isFeatured = index === 3 || index === 4;
-
             return (
               <motion.div
                 key={service.id}
@@ -231,7 +250,7 @@ export const Services = () => {
             Unsure Which Growth Service Fits Your Current Stage?
           </h3>
           <p className="text-sm text-zinc-400">
-            Let's review your business goals on a quick call and determine the highest-ROI approach for your brand.
+            Let's review your business goals and determine the highest-ROI approach for your brand.
           </p>
           <div className="pt-2">
             <Button
@@ -243,7 +262,7 @@ export const Services = () => {
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Book a Free Discovery Call
+              Get Your Free Social Media Audit
             </Button>
           </div>
         </motion.div>

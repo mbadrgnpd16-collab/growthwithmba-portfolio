@@ -2,15 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Card } from "./ui/Card";
-import { Badge } from "./ui/Badge";
 import {
   Search,
   Target,
   Wrench,
-  Rocket,
   TrendingUp,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  BarChart3
 } from "lucide-react";
 
 export const Process = () => {
@@ -18,36 +17,36 @@ export const Process = () => {
     {
       number: "01",
       title: "Discovery",
-      description: "Deep dive into your business goals, target audience, CAC targets, and existing operational bottlenecks.",
+      description: "Understand the business, audience, competitors, and goals.",
       icon: Search,
       accent: "text-indigo-400 border-indigo-500/30 bg-indigo-500/10",
     },
     {
       number: "02",
       title: "Strategy",
-      description: "Architecting the exact Meta ad funnels, AI automations, or web app features required to generate measurable ROI.",
+      description: "Build a custom content and marketing strategy.",
       icon: Target,
       accent: "text-cyan-400 border-cyan-500/30 bg-cyan-500/10",
     },
     {
       number: "03",
-      title: "Build",
-      description: "Rapid execution of ad creatives, AI workflows, or web app development using modern AI platforms.",
+      title: "Execution",
+      description: "Create, optimize, schedule, and publish content. Launch Meta advertising campaigns when required.",
       icon: Wrench,
       accent: "text-amber-400 border-amber-500/30 bg-amber-500/10",
     },
     {
       number: "04",
-      title: "Launch",
-      description: "Controlled deployment, live audience targeting, and real-time conversion tracking setup.",
-      icon: Rocket,
+      title: "Growth",
+      description: "Optimize performance, engage the audience, monitor analytics, and improve results.",
+      icon: TrendingUp,
       accent: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
     },
     {
       number: "05",
-      title: "Optimize",
-      description: "Iterative scaling based on real conversion data, daily ROAS checks, and continuous performance tuning.",
-      icon: TrendingUp,
+      title: "Reporting & Optimization",
+      description: "Monthly reporting, insights, testing, and continuous improvement.",
+      icon: BarChart3,
       accent: "text-purple-400 border-purple-500/30 bg-purple-500/10",
     },
   ];
@@ -66,7 +65,7 @@ export const Process = () => {
           badgeIcon={Sparkles}
           title="My 5-Step Execution"
           highlightText="Process."
-          description="A structured, data-driven workflow designed to move projects smoothly from concept to revenue."
+          description="A structured, outcome-driven workflow designed to move brands smoothly from strategic discovery to monthly optimization."
         />
 
         {/* Process Cards Grid */}

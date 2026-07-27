@@ -3,47 +3,64 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
 import { Badge } from "./ui/Badge";
 import {
-  ArrowRight,
   TrendingUp,
   Sparkles,
   PhoneCall,
   Zap,
-  Bot,
-  Cpu,
   CheckCircle2,
   Calendar,
-  ShieldCheck
+  ShieldCheck,
+  BarChart3
 } from "lucide-react";
+
+const InstagramIcon = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 export const Hero = () => {
   const trustMetrics = [
     {
       icon: PhoneCall,
-      label: "850+ Calls Generated",
-      sublabel: "Jamia Dar ul Quran (PKR 60k)",
+      label: "850+ Qualified Inquiries",
+      sublabel: "Jamia Dar ul Quran Campaigns",
       accent: "text-indigo-400",
       bg: "bg-indigo-500/10 border-indigo-500/20",
     },
     {
       icon: TrendingUp,
-      label: "+1400% Views",
+      label: "+1400% Content Views",
       sublabel: "TheSkin.pk E-Com Scale",
       accent: "text-emerald-400",
       bg: "bg-emerald-500/10 border-emerald-500/20",
     },
     {
       icon: Zap,
-      label: "+700% Total Reach",
-      sublabel: "Mukaf Brand Scaling",
+      label: "+700% Brand Reach",
+      sublabel: "Mukaf Organic Scaling",
       accent: "text-cyan-400",
       bg: "bg-cyan-500/10 border-cyan-500/20",
     },
     {
-      icon: Bot,
-      label: "4 Production Apps",
-      sublabel: "Antigravity & Lovable",
-      accent: "text-amber-400",
-      bg: "bg-amber-500/10 border-amber-500/20",
+      icon: InstagramIcon,
+      label: "+150% Non-Follower Reach",
+      sublabel: "Video Editing Agency Growth",
+      accent: "text-rose-400",
+      bg: "bg-rose-500/10 border-rose-500/20",
     },
   ];
 
@@ -66,24 +83,24 @@ export const Hero = () => {
             {/* Authority Badge Row */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
               <Badge variant="live" ping className="py-1.5 px-3.5 text-xs font-semibold">
-                Available for Q3 Growth Projects
+                Available for New Client Projects
               </Badge>
               <Badge variant="ai" icon={Sparkles} className="py-1.5 px-3.5 text-xs font-semibold">
-                Founder of Mukaf
+                Helping Businesses Grow Through Social Media
               </Badge>
             </div>
 
             {/* 5-Second Core Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.10]">
-              I Build Growth Systems That Turn{" "}
+              Your Social Media Should Be{" "}
               <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
-                Attention Into Revenue.
+                Growing Your Business.
               </span>
             </h1>
 
             {/* Clear, Human Supporting Copy */}
             <p className="text-lg sm:text-xl text-zinc-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              I am <strong className="text-white font-semibold">M. Bin Amir</strong>, an AI Growth Marketer and Product Builder. I help startups and business owners scale through high-ROI Meta Ads, automated workflows, and custom AI software built for real business outcomes.
+              I help businesses strengthen their online presence through strategic social media management, Instagram growth, content strategy, and performance marketing that turns attention into customers.
             </p>
 
             {/* Primary & Secondary Action CTAs */}
@@ -98,7 +115,7 @@ export const Hero = () => {
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Book a Free Discovery Call
+                Get Your Free Social Media Audit
               </Button>
 
               <Button
@@ -111,7 +128,7 @@ export const Hero = () => {
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                View Verified Results
+                View Case Studies
               </Button>
             </div>
 
@@ -121,7 +138,7 @@ export const Hero = () => {
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> High-ROI Meta Ad Funnels
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" /> Lovable & Antigravity Products
+                <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" /> Strategic Instagram Management
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> Zero Vanity Metrics Guarantee
@@ -172,7 +189,7 @@ export const Hero = () => {
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="text-xs font-mono text-zinc-300 font-semibold uppercase tracking-wider">
-                      Verified Specialist
+                      Growth Partner
                     </span>
                   </div>
                   <span className="text-[11px] font-mono text-indigo-400 bg-indigo-950/80 px-2.5 py-1 rounded-md border border-indigo-800/50">
@@ -184,7 +201,7 @@ export const Hero = () => {
                 <div className="relative mx-auto w-52 h-64 sm:w-56 sm:h-72 rounded-2xl overflow-hidden border-2 border-indigo-500/40 bg-gradient-to-b from-zinc-800 to-zinc-950 p-1 shadow-2xl group">
                   <img
                     src="/m_bin_amir.jpg"
-                    alt="M. Bin Amir — AI Growth Marketer & AI Product Builder"
+                    alt="M. Bin Amir — Social Media Manager & Growth Marketer"
                     className="w-full h-full object-cover rounded-xl filter brightness-[1.02] contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-60" />
@@ -194,7 +211,7 @@ export const Hero = () => {
                       M. Bin Amir
                     </div>
                     <div className="text-[11px] text-indigo-300 font-mono drop-shadow-md">
-                      AI Growth & Product Builder
+                      SMM & Growth Marketer
                     </div>
                   </div>
                 </div>
@@ -202,10 +219,10 @@ export const Hero = () => {
                 {/* Stack Badges */}
                 <div className="space-y-2 pt-1">
                   <div className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider text-center">
-                    AI & Growth Stack
+                    Growth & Marketing Stack
                   </div>
                   <div className="flex flex-wrap justify-center gap-1.5">
-                    {["Meta Ads", "Lovable", "Antigravity", "Supabase", "ChatGPT", "Claude"].map((tech) => (
+                    {["Meta Ads", "Instagram Growth", "Content Strategy", "Canva", "CapCut", "Premiere Pro"].map((tech) => (
                       <span
                         key={tech}
                         className="px-2.5 py-1 text-[11px] font-mono bg-zinc-900/90 text-zinc-300 rounded-md border border-zinc-800 hover:border-indigo-500/50 transition-colors"
@@ -223,11 +240,11 @@ export const Hero = () => {
                       <ShieldCheck className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-white">Founder of Mukaf</div>
-                      <div className="text-[11px] text-zinc-400">+700% Brand Reach Growth</div>
+                      <div className="text-xs font-bold text-white">Meta Ads Specialist</div>
+                      <div className="text-[11px] text-zinc-400">850+ Qualified Inquiries Generated</div>
                     </div>
                   </div>
-                  <Badge variant="live" ping>Verified</Badge>
+                  <Badge variant="live" ping>Active</Badge>
                 </div>
               </div>
 
@@ -240,7 +257,7 @@ export const Hero = () => {
                 <div className="w-6 h-6 rounded-md bg-indigo-500/20 flex items-center justify-center text-indigo-400">
                   <TrendingUp className="w-3.5 h-3.5" />
                 </div>
-                <span>Meta Ads Specialist</span>
+                <span>SMM Specialist</span>
               </motion.div>
 
               {/* Floating Badge 2 (Right Middle) */}
@@ -250,9 +267,9 @@ export const Hero = () => {
                 className="absolute top-1/3 -right-4 sm:-right-6 glass-panel px-3.5 py-2 rounded-xl border border-cyan-500/30 shadow-2xl hidden sm:flex items-center gap-2 text-xs font-semibold text-white"
               >
                 <div className="w-6 h-6 rounded-md bg-cyan-500/20 flex items-center justify-center text-cyan-400">
-                  <Cpu className="w-3.5 h-3.5" />
+                  <BarChart3 className="w-3.5 h-3.5" />
                 </div>
-                <span>Lovable + Supabase</span>
+                <span>Content Strategy</span>
               </motion.div>
 
             </div>

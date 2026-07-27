@@ -22,16 +22,16 @@ export const About = () => {
     {
       title: "Full-Funnel Ownership",
       description:
-        "I don't just run ads or build isolated tools. I architect end-to-end customer acquisition and product funnels designed for conversion.",
+        "I don't just post content or run ads. I connect your social channels directly to customer acquisition funnels designed for conversion.",
       icon: Target,
       color: "text-indigo-400",
       border: "border-indigo-500/30",
       bg: "bg-indigo-500/10",
     },
     {
-      title: "Rapid AI Development",
+      title: "Rapid Workflow Speed",
       description:
-        "Build and launch AI-powered solutions quickly using modern AI development platforms.",
+        "I use modern AI tools behind the scenes to improve workflows, speed up execution, and deliver better results.",
       icon: Zap,
       color: "text-cyan-400",
       border: "border-cyan-500/30",
@@ -40,16 +40,16 @@ export const About = () => {
     {
       title: "Zero Vanity Metrics",
       description:
-        "Likes and impressions don't pay bills. Every ad campaign, workflow, and product feature is measured directly against revenue and qualified leads.",
+        "Likes and followers don't pay bills. Every strategy, post, and campaign is measured directly against revenue and qualified inbound inquiries.",
       icon: ShieldCheck,
       color: "text-emerald-400",
       border: "border-emerald-500/30",
       bg: "bg-emerald-500/10",
     },
     {
-      title: "Dual-Threat Synergy",
+      title: "Dual Growth Competency",
       description:
-        "Combining high-converting marketing psychology with hands-on AI product engineering. I build software that customers actually buy.",
+        "Combining high-converting Meta advertising psychology with organic content strategy to build sustainable, long-term brand authority.",
       icon: Cpu,
       color: "text-amber-400",
       border: "border-amber-500/30",
@@ -59,20 +59,20 @@ export const About = () => {
 
   const pillars = [
     {
-      title: "Growth Marketing & Meta Ads",
-      desc: "Data-backed performance advertising, precise demographic audience targeting, and high-converting ad copy that drives measurable ROI.",
+      title: "Social Media Management",
+      desc: "Monthly content management, profiles optimization, monthly reporting, and customer engagement targeting organic community growth.",
       icon: TrendingUp,
       accent: "from-indigo-500 to-indigo-700",
     },
     {
-      title: "AI Automations & Workflows",
-      desc: "Custom intelligent systems using ChatGPT & Claude APIs to automate repetitive business operations and customer communications.",
+      title: "Instagram Organic Growth",
+      desc: "Audience research, competitor mapping, content pillar definition, and Reels strategies built to target viral organic distribution.",
       icon: Bot,
       accent: "from-cyan-500 to-blue-700",
     },
     {
-      title: "AI Product Development",
-      desc: "Building scalable web apps and internal tools using Antigravity, Lovable, and Supabase to solve real client business problems fast.",
+      title: "Meta Performance Marketing",
+      desc: "High-ROI Facebook and Instagram ad campaign setup, precise demographic targeting, retargeting systems, and campaign optimization.",
       icon: Cpu,
       accent: "from-emerald-500 to-teal-700",
     },
@@ -91,9 +91,9 @@ export const About = () => {
           badge="ABOUT M. BIN AMIR"
           badgeVariant="ai"
           badgeIcon={User}
-          title="Bridging Growth Marketing &"
-          highlightText="AI Product Development."
-          description="Most businesses struggle with traditional agencies delivering vanity metrics or slow dev teams. I combine data-driven marketing with rapid AI development to deliver scalable revenue."
+          title="Bridging Brand Strategy &"
+          highlightText="Performance Marketing."
+          description="I help businesses build stronger brands, grow on social media, and generate more customers through organic and paid growth engines."
         />
 
         {/* Top Split Layout: Personal Introduction & Real Photo Frame */}
@@ -113,7 +113,7 @@ export const About = () => {
               <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
                 <div>
                   <h3 className="text-xl font-extrabold text-white">M. Bin Amir</h3>
-                  <p className="text-xs font-mono text-indigo-400">Founder, GrowthWithMBA</p>
+                  <p className="text-xs font-mono text-indigo-400">GrowthMarketer, SMM</p>
                 </div>
                 <Badge variant="live" ping>Active Partner</Badge>
               </div>
@@ -122,7 +122,7 @@ export const About = () => {
               <div className="relative mx-auto w-52 h-64 sm:w-60 sm:h-72 rounded-2xl overflow-hidden border-2 border-indigo-500/40 bg-gradient-to-b from-zinc-800 to-zinc-950 p-1 shadow-2xl group">
                 <img
                   src="/m_bin_amir.jpg"
-                  alt="M. Bin Amir — Founder GrowthWithMBA"
+                  alt="M. Bin Amir — Growth Marketer"
                   className="w-full h-full object-cover rounded-xl filter brightness-[1.02] contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-60" />
@@ -132,7 +132,7 @@ export const About = () => {
                     M. Bin Amir
                   </div>
                   <div className="text-[11px] text-indigo-300 font-mono drop-shadow-md">
-                    Founder of Mukaf • AI Builder
+                    Growth Marketer & SMM
                   </div>
                 </div>
               </div>
@@ -140,20 +140,20 @@ export const About = () => {
               {/* Core Discipline Stack */}
               <div className="space-y-2 pt-1">
                 <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider text-center">
-                  Core Discipline Stack
+                  Core Focus Areas
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-center text-xs">
                   <div className="p-2 bg-zinc-900/80 rounded-lg border border-zinc-800 font-medium text-zinc-200">
-                    Meta Ads Funnels
+                    Social Media Management
                   </div>
                   <div className="p-2 bg-zinc-900/80 rounded-lg border border-zinc-800 font-medium text-zinc-200">
-                    AI Automations
+                    Instagram Organic Growth
                   </div>
                   <div className="p-2 bg-zinc-900/80 rounded-lg border border-zinc-800 font-medium text-zinc-200">
-                    Lovable + Supabase
+                    Meta Ad Campaigns
                   </div>
                   <div className="p-2 bg-zinc-900/80 rounded-lg border border-zinc-800 font-medium text-zinc-200">
-                    Antigravity Systems
+                    Content Strategy
                   </div>
                 </div>
               </div>
@@ -175,20 +175,20 @@ export const About = () => {
 
             {/* Clear Heading for the Column */}
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
-              Growth Engineering Driven by Measurable ROI.
+              Repositioning Social Presence for Commercial Success.
             </h3>
 
             {/* Proper Body Paragraph Introduction (Not a Heading) */}
             <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
-              Hi, I'm <strong className="text-white font-semibold">M. Bin Amir</strong>, founder of GrowthWithMBA. I help businesses grow by combining performance marketing, AI automation, and AI-powered product development.
+              Hi, I'm <strong className="text-white font-semibold">M. Bin Amir</strong>. I'm a Social Media Manager and Growth Marketer who helps businesses build stronger brands through social media management, content strategy, Instagram growth, and paid advertising.
             </p>
 
             <p className="text-base text-zinc-300 leading-relaxed">
-              My goal is simple: build systems that generate measurable business results—not just more clicks or followers.
+              I believe social media should generate real business growth—not just likes and followers. My focus is creating strategies that increase visibility, attract the right audience, and turn engagement into customers.
             </p>
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-              Growing a modern business requires more than running generic ad campaigns. It demands a cohesive strategy that connects your acquisition channels directly to functional, intelligent digital products built with tools like <span className="text-indigo-400 font-mono font-semibold">Antigravity, Lovable, and Supabase</span>.
+              I also use modern AI tools behind the scenes to improve workflows, speed up execution, and deliver better results. This ensures your brand moves faster, tests more angles, and maintains high-quality consistency.
             </p>
 
             {/* Credibility Checklist */}
@@ -199,15 +199,15 @@ export const About = () => {
               </div>
               <div className="flex items-center gap-2.5 text-sm font-medium text-zinc-200">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Custom AI Product Development</span>
+                <span>Instagram Organic Scale</span>
               </div>
               <div className="flex items-center gap-2.5 text-sm font-medium text-zinc-200">
                 <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
-                <span>Automated Operations & Workflows</span>
+                <span>Content Calendars & Scheduling</span>
               </div>
               <div className="flex items-center gap-2.5 text-sm font-medium text-zinc-200">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Performance Content Strategy</span>
+                <span>Performance Content Direction</span>
               </div>
             </div>
           </motion.div>
@@ -307,7 +307,7 @@ export const About = () => {
               if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Book a Free Discovery Call
+            Get Your Free Social Media Audit
           </Button>
         </div>
 
