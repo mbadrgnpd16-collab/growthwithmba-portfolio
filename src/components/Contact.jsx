@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
+import { usePageSEO } from "../utils/usePageSEO";
 import {
   MessageSquare,
   Mail,
@@ -11,26 +13,42 @@ import {
   Clock,
   ShieldCheck,
   Globe,
-  PhoneCall
+  PhoneCall,
+  AlertCircle
 } from "lucide-react";
 
-// REPLACE THIS with your actual Formspree Form ID/Endpoint
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpznjepg"; 
+// Formspree Form ID configured via Vite environment variable or fallback placeholder
+const FORMSPREE_FORM_ID = import.meta.env.VITE_FORMSPREE_FORM_ID || "YOUR_FORMSPREE_FORM_ID";
 
 export const Contact = () => {
+  usePageSEO(
+    "Contact M. Bin Amir | Get in Touch",
+    "Get in touch with M. Bin Amir for AI product building, web applications, social media management, content strategy, or Meta advertising."
+  );
+
+  const [searchParams] = useSearchParams();
+  const serviceParam = searchParams.get("service");
+
   const emailAddress = "growthwithmba@gmail.com";
   const displayWhatsApp = "+92 321 2594511";
-  
+
   const [formState, setFormState] = useState({
     name: "",
-    businessName: "",
     email: "",
-    instagramHandle: "",
-    website: "",
-    businessGoal: "",
+    businessName: "",
+    link: "",
+    serviceNeeded: "",
     message: ""
   });
-  
+
+  useEffect(() => {
+    if (serviceParam === "ai") {
+      setFormState((prev) => ({ ...prev, serviceNeeded: "AI Product / Web App" }));
+    } else if (serviceParam === "growth") {
+      setFormState((prev) => ({ ...prev, serviceNeeded: "Social Media Management" }));
+    }
+  }, [serviceParam]);
+
   const [status, setStatus] = useState("idle"); // idle, submitting, success, error
 
   const handleChange = (e) => {
@@ -44,8 +62,10 @@ export const Contact = () => {
     e.preventDefault();
     setStatus("submitting");
 
+    const endpoint = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
+
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +73,7 @@ export const Contact = () => {
         },
         body: JSON.stringify({
           ...formState,
-          _subject: `New Social Media Audit Request from ${formState.name}`
+          _subject: `New Project Inquiry from ${formState.name} (${formState.serviceNeeded || "General"})`
         })
       });
 
@@ -61,58 +81,55 @@ export const Contact = () => {
         setStatus("success");
         setFormState({
           name: "",
-          businessName: "",
           email: "",
-          instagramHandle: "",
-          website: "",
-          businessGoal: "",
+          businessName: "",
+          link: "",
+          serviceNeeded: "",
           message: ""
         });
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
 
   return (
-    <section id="contact" className="py-28 relative overflow-hidden bg-[#0c0c0e]">
+    <div className="min-h-screen pt-32 pb-24 relative overflow-hidden bg-[#09090b]">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-r from-indigo-600/15 via-cyan-500/10 to-emerald-500/15 blur-[160px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
-        {/* Section Header */}
+        {/* Header */}
         <SectionHeader
           badge="GET IN TOUCH"
           badgeVariant="live"
           badgeIcon={MessageSquare}
-          title="Let's Grow Your Brand."
-          highlightText=""
-          description="Whether you're looking for consistent social media management, stronger Instagram growth, or better-performing campaigns, I'd love to learn more about your business and how I can help."
+          title="Start a Project or Conversation"
+          description="Whether you have an AI product idea to build or want to grow your brand through social media, send an inquiry below."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
           
-          {/* Left Column: Formspree Audit Form */}
+          {/* Form Column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6 w-full"
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 w-full"
           >
             <div className="glass-card p-6 sm:p-8 rounded-3xl border border-indigo-500/35 relative overflow-hidden">
               <div className="mb-6">
                 <Badge variant="live" ping className="mb-2">
-                  Free Assessment
+                  Project Form
                 </Badge>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                  Get Your Free Social Media Audit
+                  Project & Inquiry Details
                 </h3>
                 <p className="text-xs text-zinc-400 mt-1">
-                  Fill out the form below, and I will analyze your current presence and send you a custom growth roadmap.
+                  Fill out the details below and I will respond within 24 hours.
                 </p>
               </div>
 
@@ -125,15 +142,15 @@ export const Contact = () => {
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-white">Audit Request Received!</h4>
+                  <h4 className="text-lg font-bold text-white">Inquiry Sent Successfully!</h4>
                   <p className="text-xs text-zinc-300">
-                    Thanks! I've received your request and will get back to you within 24 hours.
+                    Thanks! Your message has been received and I'll get back to you within 24 hours.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
                     className="text-xs text-indigo-400 hover:text-indigo-300 font-mono underline cursor-pointer"
                   >
-                    Submit another response
+                    Send another inquiry
                   </button>
                 </motion.div>
               ) : (
@@ -141,7 +158,7 @@ export const Contact = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
-                        Full Name <span className="text-rose-500">*</span>
+                        Name <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -150,29 +167,12 @@ export const Contact = () => {
                         value={formState.name}
                         onChange={handleChange}
                         className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                        placeholder="John Doe"
+                        placeholder="Your Name"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
-                        Business Name <span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="businessName"
-                        required
-                        value={formState.businessName}
-                        onChange={handleChange}
-                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                        placeholder="My Agency Ltd"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
-                        Business Email <span className="text-rose-500">*</span>
+                        Email <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -181,70 +181,77 @@ export const Contact = () => {
                         value={formState.email}
                         onChange={handleChange}
                         className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                        placeholder="john@example.com"
+                        placeholder="name@example.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
+                        Business / Company Name <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="businessName"
+                        required
+                        value={formState.businessName}
+                        onChange={handleChange}
+                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="Company Name"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
-                        Instagram Handle <span className="text-rose-500">*</span>
+                        Website or Social Link <span className="text-zinc-500">(Optional)</span>
                       </label>
                       <input
                         type="text"
-                        name="instagramHandle"
-                        required
-                        value={formState.instagramHandle}
+                        name="link"
+                        value={formState.link}
                         onChange={handleChange}
                         className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                        placeholder="@mybrand"
+                        placeholder="https:// or @handle"
                       />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
-                      Website URL <span className="text-zinc-600">(Optional)</span>
-                    </label>
-                    <input
-                      type="url"
-                      name="website"
-                      value={formState.website}
-                      onChange={handleChange}
-                      className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                      placeholder="https://example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
-                      What is your primary business goal? <span className="text-rose-500">*</span>
+                      What do you need help with? <span className="text-rose-500">*</span>
                     </label>
                     <select
-                      name="businessGoal"
+                      name="serviceNeeded"
                       required
-                      value={formState.businessGoal}
+                      value={formState.serviceNeeded}
                       onChange={handleChange}
-                      className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-300 focus:outline-none focus:border-indigo-500 transition-colors"
+                      className="w-full bg-zinc-900/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-indigo-500 transition-colors"
                     >
-                      <option value="" disabled>Select a goal...</option>
-                      <option value="Increase Brand Reach">Increase Brand Reach</option>
-                      <option value="Generate Inquiries & Leads">Generate Inquiries & Leads</option>
-                      <option value="Grow Instagram Followers">Grow Instagram Followers</option>
-                      <option value="Scale E-Commerce Store Sales">Scale E-Commerce Store Sales</option>
-                      <option value="B2B Client Acquisition">B2B Client Acquisition</option>
+                      <option value="" disabled>Select an option...</option>
+                      <option value="AI Product / Web App">AI Product / Web App</option>
+                      <option value="Website">Website</option>
+                      <option value="AI Tool">AI Tool</option>
+                      <option value="Chrome Extension">Chrome Extension</option>
+                      <option value="Chatbot">Chatbot</option>
+                      <option value="Social Media Management">Social Media Management</option>
+                      <option value="Growth Strategy">Growth Strategy</option>
+                      <option value="Meta Advertising">Meta Advertising</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-mono text-zinc-400 uppercase mb-1.5">
-                      Message / Additional Notes
+                      Tell me about your project or business <span className="text-rose-500">*</span>
                     </label>
                     <textarea
                       name="message"
-                      rows="3"
+                      rows="4"
+                      required
                       value={formState.message}
                       onChange={handleChange}
                       className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none"
-                      placeholder="Tell me about your product or service..."
+                      placeholder="Share details about your goals, product concept, or brand requirements..."
                     />
                   </div>
 
@@ -255,38 +262,37 @@ export const Contact = () => {
                     className="w-full mt-2"
                     disabled={status === "submitting"}
                   >
-                    {status === "submitting" ? "Submitting..." : "Get My Free Social Media Audit"}
+                    {status === "submitting" ? "Sending..." : "Send Inquiry"}
                   </Button>
 
                   {status === "error" && (
-                    <p className="text-center text-xs text-rose-400 font-mono mt-2">
-                      Something went wrong. Please try again or email growthwithmba@gmail.com directly.
-                    </p>
+                    <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-300 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                      <span>Form submission error. You can also email directly to growthwithmba@gmail.com.</span>
+                    </div>
                   )}
                 </form>
               )}
 
-              {/* Trust Features */}
               <div className="pt-4 mt-6 border-t border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-400 font-medium">
                 <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-emerald-400" /> Audit delivered within 48 hours
+                  <Clock className="w-4 h-4 text-emerald-400" /> Response within 24 hours
                 </span>
                 <span className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-indigo-400" /> 100% confidential brand analysis
+                  <ShieldCheck className="w-4 h-4 text-indigo-400" /> Direct founder collaboration
                 </span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Professional Contact Card */}
+          {/* Contact Details Column */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 w-full"
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="lg:col-span-5 w-full space-y-6"
           >
-            <div className="glass-card rounded-3xl p-6 sm:p-8 border border-zinc-700/60 shadow-2xl relative space-y-6">
+            <div className="glass-card rounded-3xl p-6 sm:p-8 border border-zinc-700/60 shadow-2xl space-y-6">
               
               <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
                 <div>
@@ -297,7 +303,6 @@ export const Contact = () => {
               </div>
 
               <div className="space-y-3">
-                {/* Direct Email Card */}
                 <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
                   <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5 text-indigo-400" /> Direct Email
@@ -310,13 +315,12 @@ export const Contact = () => {
                   </a>
                 </div>
 
-                {/* Direct WhatsApp Card */}
                 <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
                   <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
-                    <PhoneCall className="w-3.5 h-3.5 text-emerald-400" /> WhatsApp Contact
+                    <PhoneCall className="w-3.5 h-3.5 text-emerald-400" /> WhatsApp Direct
                   </div>
                   <a
-                    href={`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20social%20media%20audit.`}
+                    href={`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20project.`}
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors block font-mono"
@@ -324,25 +328,10 @@ export const Contact = () => {
                     {displayWhatsApp}
                   </a>
                 </div>
-
-                {/* Direct LinkedIn Card */}
-                <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
-                  <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
-                    <Globe className="w-3.5 h-3.5 text-blue-400" /> Professional Network
-                  </div>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-semibold text-white hover:text-indigo-400 transition-colors block font-mono"
-                  >
-                    LinkedIn Profile
-                  </a>
-                </div>
               </div>
 
               <div className="pt-2 text-center text-xs font-mono text-zinc-500">
-                SMM • Growth Marketer • Meta Ads
+                AI Product Building • Social Media • Growth Marketing
               </div>
 
             </div>
@@ -351,6 +340,6 @@ export const Contact = () => {
         </div>
 
       </div>
-    </section>
+    </div>
   );
 };

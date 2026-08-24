@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Sparkles, ArrowUp } from "lucide-react";
 
 export const Footer = () => {
@@ -7,7 +8,7 @@ export const Footer = () => {
   };
 
   const emailAddress = "growthwithmba@gmail.com";
-  const whatsappUrl = "https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20growth%20project.";
+  const whatsappUrl = "https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20project.";
 
   return (
     <footer className="bg-[#070709] border-t border-zinc-800/80 pt-16 pb-12 text-zinc-400">
@@ -18,7 +19,7 @@ export const Footer = () => {
           
           {/* Brand Info */}
           <div className="md:col-span-6 space-y-4">
-            <a href="#" className="flex items-center gap-2.5 group inline-flex">
+            <Link to="/" className="flex items-center gap-2.5 group inline-flex">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform">
                 <Sparkles className="w-5 h-5" />
               </div>
@@ -30,10 +31,10 @@ export const Footer = () => {
                   M. Bin Amir
                 </span>
               </div>
-            </a>
+            </Link>
 
             <p className="text-xs sm:text-sm text-zinc-400 max-w-md leading-relaxed">
-              Helping businesses grow through strategic social media management and performance marketing.
+              AI product building and performance growth marketing for businesses, startups, and entrepreneurs.
             </p>
           </div>
 
@@ -41,24 +42,21 @@ export const Footer = () => {
           <div className="md:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-6 text-xs">
             <div className="space-y-2.5">
               <div className="font-mono text-zinc-300 font-semibold uppercase tracking-wider">
-                Navigation
+                Portfolios
               </div>
               <ul className="space-y-2">
-                <li><a href="#results" className="hover:text-white transition-colors">Proven Results</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-                <li><a href="#about" className="hover:text-white transition-colors">About Me</a></li>
-                <li><a href="#process" className="hover:text-white transition-colors">Process</a></li>
+                <li><Link to="/ai" className="hover:text-white transition-colors">AI Products & Vibe Coding</Link></li>
+                <li><Link to="/growth" className="hover:text-white transition-colors">Growth Marketing</Link></li>
               </ul>
             </div>
 
             <div className="space-y-2.5">
               <div className="font-mono text-zinc-300 font-semibold uppercase tracking-wider">
-                Capabilities
+                Pages
               </div>
               <ul className="space-y-2">
-                <li><a href="#stack" className="hover:text-white transition-colors">Skills</a></li>
-                <li><a href="#ai-products" className="hover:text-white transition-colors">Technical Projects</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Free Audit</a></li>
+                <li><Link to="/about" className="hover:text-white transition-colors">About Me</Link></li>
+                <li><Link to="/contact" className="hover:text-white transition-colors">Contact & Audit</Link></li>
               </ul>
             </div>
 
@@ -69,7 +67,6 @@ export const Footer = () => {
               <ul className="space-y-2">
                 <li><a href={`mailto:${emailAddress}`} className="hover:text-white transition-colors">Email Direct</a></li>
                 <li><a href={whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp Direct</a></li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
               </ul>
             </div>
           </div>
@@ -83,10 +80,10 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-zinc-500">Built with React, Tailwind & Framer Motion.</span>
+            <span className="text-zinc-500">React, Tailwind CSS & Framer Motion</span>
             <button
               onClick={scrollToTop}
-              className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg border border-zinc-800 transition-colors focus:outline-none"
+              className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg border border-zinc-800 transition-colors focus:outline-none cursor-pointer"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
