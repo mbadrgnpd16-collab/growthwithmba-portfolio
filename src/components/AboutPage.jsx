@@ -157,18 +157,18 @@ export const AboutPage = () => {
           <Card hover={true} className="border-zinc-800/90 p-8 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4">
               <div>
-                <h3 className="text-xl font-bold text-white">Senior Manager</h3>
-                <p className="text-xs font-mono text-indigo-400">Digital Agency</p>
+                <h3 className="text-xl font-bold text-white">Social Media & Digital Growth</h3>
+                <p className="text-xs font-mono text-emerald-400">Mukaf</p>
               </div>
-              <Badge variant="live" ping>Active Role</Badge>
+              <Badge variant="live" ping>Current Focus</Badge>
             </div>
 
-            <p className="text-sm text-zinc-300 leading-relaxed">
-              Currently working as a Senior Manager at a digital agency, managing client strategy, social media management, content execution, and growth initiatives across varied client portfolios.
+            <p className="text-base text-white font-semibold leading-relaxed">
+              Currently working on Mukaf's social media presence and digital growth.
             </p>
 
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              This agency experience keeps me grounded in active campaign data, team workflows, and multi-channel marketing execution, alongside taking on select independent client projects.
+            <p className="text-sm text-zinc-300 leading-relaxed">
+              I currently manage and work on Mukaf's social media presence, focusing on content strategy, brand visibility, audience engagement, and overall digital growth.
             </p>
           </Card>
         </div>
