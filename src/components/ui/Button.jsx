@@ -23,11 +23,11 @@ export const Button = React.forwardRef(
       secondary:
         "bg-zinc-900 hover:bg-zinc-800 text-zinc-100 border border-zinc-800 hover:border-zinc-700 shadow-sm",
       gold:
-        "bg-[#B17A0A] hover:bg-[#966708] text-white font-semibold shadow-sm border border-[#B17A0A]/50",
+        "bg-[#B17A0A] hover:bg-[#966708] text-zinc-950 font-semibold shadow-sm border border-[#B17A0A]/50",
       indigo:
         "bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-sm border border-indigo-500/50",
       emerald:
-        "bg-[#B17A0A] hover:bg-[#966708] text-white font-semibold shadow-sm border border-[#B17A0A]/50",
+        "bg-[#B17A0A] hover:bg-[#966708] text-zinc-950 font-semibold shadow-sm border border-[#B17A0A]/50",
       outline:
         "bg-transparent text-zinc-300 hover:text-white border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900/50",
       ghost:

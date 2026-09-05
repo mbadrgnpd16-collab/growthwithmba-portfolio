@@ -80,7 +80,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-zinc-500">M. Bin Amir Portfolio</span>
+            <span className="text-zinc-400">M. Bin Amir Portfolio</span>
             <button
               onClick={scrollToTop}
               className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg border border-zinc-800 transition-colors focus:outline-none cursor-pointer"

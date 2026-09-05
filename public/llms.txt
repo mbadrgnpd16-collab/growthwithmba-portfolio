@@ -1,0 +1,40 @@
+# GrowthWithMBA — M. Bin Amir
+
+GrowthWithMBA is the personal brand and professional portfolio website of M. Bin Amir, providing digital product building and social media growth marketing.
+
+## Primary Services
+
+### 1. AI Product Building & Vibe Coding
+- Custom web applications and digital tools built using modern AI development platforms.
+- Websites, web apps, MVPs, and rapid product prototypes.
+- Stack & Platforms: Antigravity, Lovable, Replit, Supabase, Google AI Studio, Vercel, React, Tailwind CSS.
+
+### 2. Social Media Management & Growth Marketing
+- Organic social media management and Instagram growth strategies.
+- Content strategy, content planning, brand positioning, and audience research.
+- Targeted Meta advertising (Facebook & Instagram Ads, lead generation campaigns).
+
+## Key Public Pages
+
+- [Homepage](https://growthwithmba-portfolio.vercel.app/) — Portfolio Gateway
+- [AI Products Portfolio](https://growthwithmba-portfolio.vercel.app/ai) — Web Apps, Tools & MVPs
+- [Growth Marketing Portfolio](https://growthwithmba-portfolio.vercel.app/growth) — Social Media Strategy & Verified Case Studies
+- [About M. Bin Amir](https://growthwithmba-portfolio.vercel.app/about) — Professional Background & Current Work
+- [Contact & Inquiries](https://growthwithmba-portfolio.vercel.app/contact) — Project Inquiries & Consultation
+
+## Verified Case Studies & Results
+
+- Jamia Dar ul Quran: Meta ad lead generation campaign yielding 850+ verified call inquiries (PKR 60,000 ad spend).
+- TheSkin.pk: E-commerce performance video campaign achieving +1400% content view growth and +461% reach expansion.
+- Mukaf: Social media management and strategy generating +700% organic reach and +320% profile activity.
+- Video Editing Agency: Out-of-network video hook campaign driving +148% views and +150% non-follower reach.
+
+## Current Professional Work
+
+- Managing and developing Mukaf's social media presence, content strategy, brand visibility, audience engagement, and digital growth.
+
+## Contact Information
+
+- Email: growthwithmba@gmail.com
+- WhatsApp: +92 321 2594511
+- Inquiry Form: https://growthwithmba-portfolio.vercel.app/contact

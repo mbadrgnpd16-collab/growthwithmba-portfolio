@@ -1,12 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./components/Home";
-import { AIPortfolio } from "./components/AIPortfolio";
-import { GrowthPortfolio } from "./components/GrowthPortfolio";
-import { AboutPage } from "./components/AboutPage";
-import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+
+// Lazy-load non-home routes for optimal initial bundle performance
+const AIPortfolio = lazy(() =>
+  import("./components/AIPortfolio").then((m) => ({ default: m.AIPortfolio }))
+);
+const GrowthPortfolio = lazy(() =>
+  import("./components/GrowthPortfolio").then((m) => ({ default: m.GrowthPortfolio }))
+);
+const AboutPage = lazy(() =>
+  import("./components/AboutPage").then((m) => ({ default: m.AboutPage }))
+);
+const Contact = lazy(() =>
+  import("./components/Contact").then((m) => ({ default: m.Contact }))
+);
+
+// Minimal background fallback without spinners or layout shift
+function PageFallback() {
+  return <div className="min-h-screen bg-[#09090b]" />;
+}
 
 // ScrollToTop helper on path change
 function ScrollToTop() {
@@ -29,15 +44,17 @@ export default function App() {
 
         {/* Main Route Views */}
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/ai" element={<AIPortfolio />} />
-            <Route path="/growth" element={<GrowthPortfolio />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* Fallback route */}
-            <Route path="*" element={<Home />} />
-          </Routes>
+          <Suspense fallback={<PageFallback />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/ai" element={<AIPortfolio />} />
+              <Route path="/growth" element={<GrowthPortfolio />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<Contact />} />
+              {/* Fallback route */}
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </Suspense>
         </main>
 
         {/* Shared Footer */}
