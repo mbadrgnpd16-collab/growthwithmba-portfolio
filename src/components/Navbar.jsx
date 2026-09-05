@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/Button";
-import { Badge } from "./ui/Badge";
 import { Menu, X, Calendar, Sparkles } from "lucide-react";
 
 export const Navbar = () => {
@@ -29,11 +28,28 @@ export const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
+  const getLinkStyle = (linkPath) => {
+    const isActive = location.pathname === linkPath;
+    if (!isActive) {
+      return "text-zinc-400 hover:text-white hover:bg-zinc-800/50";
+    }
+
+    if (linkPath === "/growth") {
+      return "bg-[#B17A0A]/10 text-[#D4991A] font-semibold border border-[#B17A0A]/30";
+    }
+    if (linkPath === "/ai") {
+      return "bg-indigo-950/50 text-indigo-300 font-semibold border border-indigo-500/30";
+    }
+    return "bg-zinc-800/80 text-white font-semibold border border-zinc-700/60";
+  };
+
+  const isGrowthPage = location.pathname === "/growth";
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? "bg-[#09090b]/85 backdrop-blur-xl border-b border-zinc-800/80 shadow-2xl py-3.5"
+          ? "bg-[#09090b]/90 backdrop-blur-md border-b border-zinc-800/80 py-3.5"
           : "bg-transparent py-5"
       }`}
     >
@@ -43,13 +59,13 @@ export const Navbar = () => {
           to="/"
           className="flex items-center gap-2.5 group focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform">
-            <Sparkles className="w-5 h-5" />
+          <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white group-hover:border-zinc-700 transition-colors">
+            <Sparkles className="w-4 h-4 text-zinc-300" />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-base tracking-tight text-white group-hover:text-indigo-300 transition-colors flex items-center gap-1.5">
+            <span className="font-extrabold text-base tracking-tight text-white group-hover:text-zinc-200 transition-colors flex items-center gap-1.5">
               GrowthWithMBA
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span className={`w-1.5 h-1.5 rounded-full ${isGrowthPage ? "bg-[#B17A0A]" : "bg-indigo-400"}`}></span>
             </span>
             <span className="text-[10px] font-mono text-zinc-400 tracking-wider uppercase">
               M. Bin Amir
@@ -57,33 +73,27 @@ export const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop Links */}
-        <nav className="hidden md:flex items-center gap-1 glass-panel px-4 py-1.5 rounded-full border border-zinc-800/80">
-          {navLinks.map((link) => {
-            const isActive = location.pathname === link.path;
-            return (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all ${
-                  isActive
-                    ? "bg-indigo-600/90 text-white font-semibold shadow-md shadow-indigo-500/20"
-                    : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-1.5 bg-[#0e0e11] px-3 py-1.5 rounded-full border border-zinc-800">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all ${getLinkStyle(link.path)}`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
 
         {/* Right CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Badge variant="live" ping className="hidden lg:inline-flex">
-            Available for Projects
-          </Badge>
           <Link to="/contact">
-            <Button variant="primary" size="sm" icon={Calendar}>
+            <Button
+              variant={isGrowthPage ? "gold" : "indigo"}
+              size="sm"
+              icon={Calendar}
+            >
               Get In Touch
             </Button>
           </Link>
@@ -106,32 +116,29 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden glass-panel border-b border-zinc-800 px-4 py-6 mt-2 space-y-4"
+            transition={{ duration: 0.15 }}
+            className="md:hidden bg-[#0c0c0e] border-b border-zinc-800 px-4 py-5 space-y-4"
           >
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                      isActive
-                        ? "bg-indigo-600 text-white font-semibold"
-                        : "text-zinc-300 hover:text-white hover:bg-zinc-800/60"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
+            <div className="flex flex-col space-y-1.5">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-3.5 py-2 text-xs font-medium rounded-lg transition-colors ${getLinkStyle(link.path)}`}
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
 
-            <div className="pt-4 border-t border-zinc-800/80 flex flex-col space-y-3">
+            <div className="pt-3 border-t border-zinc-800 flex flex-col space-y-2">
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <Button variant="emerald" icon={Calendar} className="w-full">
+                <Button
+                  variant={isGrowthPage ? "gold" : "indigo"}
+                  icon={Calendar}
+                  className="w-full"
+                >
                   Get In Touch
                 </Button>
               </Link>

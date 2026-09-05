@@ -37,7 +37,6 @@ export const GrowthPortfolio = () => {
       title: "Social Media Management",
       badge: "Core Service",
       icon: Layers,
-      accentBg: "bg-indigo-500/10 border-indigo-500/30 text-indigo-400",
       description: "Complete management of your brand's social platforms to ensure consistent, high-quality social media presence.",
       deliverables: [
         "Content planning",
@@ -52,9 +51,8 @@ export const GrowthPortfolio = () => {
     {
       id: "content-strategy",
       title: "Content & Growth Strategy",
-      badge: "Organic Growth",
+      badge: "Organic Reach",
       icon: BookOpen,
-      accentBg: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400",
       description: "Custom content roadmaps built to target reach, build brand authority, and grow target audiences.",
       deliverables: [
         "Content strategy",
@@ -71,7 +69,6 @@ export const GrowthPortfolio = () => {
       title: "Meta Advertising",
       badge: "Paid Campaigns",
       icon: Target,
-      accentBg: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
       description: "Performance paid campaigns built to generate qualified inquiries, leads, and sales.",
       deliverables: [
         "Facebook Ads",
@@ -92,7 +89,6 @@ export const GrowthPortfolio = () => {
       primaryMetric: "850+ Calls Generated",
       secondaryMetric: "PKR 60,000 Ad Spend",
       badgeText: "Lead Generation",
-      badgeVariant: "live",
       icon: PhoneCall,
       challenge: "Low student enrollment inquiries and high cost-per-lead for educational programs.",
       strategy: "Shifted to direct click-to-call funnels targeting interested demographics.",
@@ -110,7 +106,6 @@ export const GrowthPortfolio = () => {
       primaryMetric: "+1400% Content Views",
       secondaryMetric: "+461% Reach",
       badgeText: "E-Com Scale",
-      badgeVariant: "metric",
       icon: Eye,
       challenge: "Stagnant traffic and high customer acquisition cost in competitive skincare niche.",
       strategy: "Deployed problem-solution short videos with retargeting custom ad sets.",
@@ -128,7 +123,6 @@ export const GrowthPortfolio = () => {
       primaryMetric: "+700% Reach",
       secondaryMetric: "+320% Profile Activity",
       badgeText: "Brand Scale",
-      badgeVariant: "cyan",
       icon: Zap,
       challenge: "Limited organic distribution restricting brand authority and incoming inquiries.",
       strategy: "Redesigned profile content structure and engagement triggers.",
@@ -146,7 +140,6 @@ export const GrowthPortfolio = () => {
       primaryMetric: "+148% Content Views",
       secondaryMetric: "+150% Non-Follower Reach",
       badgeText: "B2B Growth",
-      badgeVariant: "rose",
       icon: TrendingUp,
       challenge: "Content reach was restricted to current followers, limiting new B2B client acquisition.",
       strategy: "Published out-of-network video breakdowns showcasing workflows and client case studies.",
@@ -191,19 +184,17 @@ export const GrowthPortfolio = () => {
     <div className="min-h-screen bg-[#09090b]">
       
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-emerald-600/15 blur-[140px] rounded-full pointer-events-none -z-10" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
           <div className="flex justify-center">
-            <Badge variant="live" ping className="py-1.5 px-4 text-xs font-semibold">
+            <Badge variant="gold" icon={Sparkles} className="py-1 px-3.5 text-xs">
               Social Media Manager • Growth Marketer
             </Badge>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] max-w-4xl mx-auto">
             Helping Brands Grow Through{" "}
-            <span className="bg-gradient-to-r from-emerald-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">
+            <span className="text-[#B17A0A]">
               Better Social Media.
             </span>
           </h1>
@@ -214,7 +205,7 @@ export const GrowthPortfolio = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link to="/contact?service=growth">
-              <Button variant="emerald" size="lg" icon={Calendar}>
+              <Button variant="gold" size="lg" icon={Calendar}>
                 Let's Grow Your Brand
               </Button>
             </Link>
@@ -227,47 +218,49 @@ export const GrowthPortfolio = () => {
         </div>
       </section>
 
-      {/* Growth Services (3 Services) */}
-      <section className="py-20 bg-[#0c0c0e] relative border-y border-zinc-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Growth Services */}
+      <section className="py-20 bg-[#0c0c0e] border-y border-zinc-800/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="SOLUTIONS"
-            badgeVariant="live"
+            badge="SERVICES"
+            badgeVariant="gold"
             badgeIcon={Layers}
             title="Growth Marketing Services"
+            highlightText="& Execution"
+            highlightColor="gold"
             description="Three core service offerings designed to build consistent social media presence and drive real commercial outcomes."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((srv) => {
               const Icon = srv.icon;
               return (
-                <Card key={srv.id} hover={true} className="flex flex-col justify-between border-zinc-800/90 hover:border-emerald-500/40">
+                <Card key={srv.id} hover={true} className="flex flex-col justify-between hover:border-[#B17A0A]/40">
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">
-                      <div className={`w-12 h-12 rounded-xl border flex items-center justify-center ${srv.accentBg}`}>
-                        <Icon className="w-6 h-6" />
+                      <div className="w-10 h-10 rounded-lg bg-[#B17A0A]/10 border border-[#B17A0A]/30 flex items-center justify-center text-[#D4991A]">
+                        <Icon className="w-5 h-5" />
                       </div>
-                      <Badge variant="live">{srv.badge}</Badge>
+                      <Badge variant="gold">{srv.badge}</Badge>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-extrabold text-white tracking-tight mb-2">
+                      <h3 className="text-xl font-bold text-white tracking-tight mb-2">
                         {srv.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                      <p className="text-sm text-zinc-400 leading-relaxed font-normal">
                         {srv.description}
                       </p>
                     </div>
 
                     <div className="space-y-2 pt-3 border-t border-zinc-800/80">
-                      <span className="text-xs font-mono uppercase text-zinc-300 font-semibold">
+                      <span className="text-xs font-mono uppercase text-zinc-400 font-semibold">
                         Includes
                       </span>
                       <div className="space-y-1.5">
                         {srv.deliverables.map((item, i) => (
                           <div key={i} className="flex items-center gap-2 text-xs text-zinc-300">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#D4991A] shrink-0" />
                             <span>{item}</span>
                           </div>
                         ))}
@@ -277,7 +270,7 @@ export const GrowthPortfolio = () => {
 
                   <div className="pt-6 mt-6 border-t border-zinc-800/80">
                     <Link to="/contact?service=growth">
-                      <Button variant="ghost" size="sm" icon={ArrowRight} className="w-full justify-between text-emerald-400 hover:text-emerald-300">
+                      <Button variant="ghost" size="sm" icon={ArrowRight} className="w-full justify-between text-[#D4991A] hover:text-[#B17A0A]">
                         Get Started
                       </Button>
                     </Link>
@@ -289,34 +282,36 @@ export const GrowthPortfolio = () => {
         </div>
       </section>
 
-      {/* Growth Results & Case Studies (Single Proof Section) */}
-      <section id="growth-results" className="py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Growth Results & Case Studies */}
+      <section id="growth-results" className="py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <SectionHeader
             badge="VERIFIED PROOF"
-            badgeVariant="live"
+            badgeVariant="gold"
             badgeIcon={BarChart3}
             title="Growth & Marketing Results"
+            highlightText="★"
+            highlightColor="gold"
             description="Real results from social media strategy, content growth, and paid advertising."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
               return (
                 <motion.div
                   key={study.id}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
+                  transition={{ duration: 0.3, delay: index * 0.08 }}
                   className="flex"
                 >
-                  <Card hover={true} className="flex flex-col justify-between w-full border-zinc-800/90 hover:border-emerald-500/40">
+                  <Card hover={true} className="flex flex-col justify-between w-full hover:border-[#B17A0A]/40">
                     <div className="space-y-6">
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <Badge variant={study.badgeVariant} className="mb-2">
+                          <Badge variant="gold" className="mb-2">
                             {study.badgeText}
                           </Badge>
                           <h3 className="text-2xl font-extrabold text-white tracking-tight">
@@ -326,61 +321,61 @@ export const GrowthPortfolio = () => {
                             {study.category}
                           </p>
                         </div>
-                        <div className="w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400 shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4991A] shrink-0">
                           <Icon className="w-5 h-5" />
                         </div>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <div className="p-4 rounded-lg bg-[#08080a] border border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <div>
-                          <div className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                          <div className="text-3xl sm:text-4xl font-extrabold text-[#D4991A] tracking-tight">
                             {study.primaryMetric}
                           </div>
-                          <div className="text-xs font-mono text-emerald-400 font-bold mt-0.5">
+                          <div className="text-xs font-mono text-zinc-300 font-semibold mt-0.5">
                             {study.secondaryMetric}
                           </div>
                         </div>
-                        <span className="text-[10px] font-mono text-zinc-400 uppercase bg-zinc-900 px-2.5 py-1 rounded border border-zinc-800">
-                          Verified Case Study
+                        <span className="text-[10px] font-mono text-zinc-400 uppercase bg-zinc-900 px-2.5 py-1 rounded border border-zinc-800 self-start sm:self-auto">
+                          Verified Result
                         </span>
                       </div>
 
                       <div className="space-y-3 text-xs sm:text-sm">
                         <div className="space-y-1">
-                          <span className="text-[11px] font-mono uppercase text-rose-400 font-bold flex items-center gap-1">
-                            <Target className="w-3.5 h-3.5" /> Challenge
+                          <span className="text-[11px] font-mono uppercase text-zinc-400 font-bold flex items-center gap-1">
+                            <Target className="w-3.5 h-3.5 text-zinc-500" /> Challenge
                           </span>
-                          <p className="text-zinc-300 leading-relaxed text-xs">
+                          <p className="text-zinc-300 leading-relaxed text-xs font-normal">
                             {study.challenge}
                           </p>
                         </div>
 
                         <div className="space-y-1">
-                          <span className="text-[11px] font-mono uppercase text-indigo-400 font-bold flex items-center gap-1">
-                            <Layers className="w-3.5 h-3.5" /> Strategy
+                          <span className="text-[11px] font-mono uppercase text-zinc-400 font-bold flex items-center gap-1">
+                            <Layers className="w-3.5 h-3.5 text-zinc-500" /> Strategy
                           </span>
-                          <p className="text-zinc-300 leading-relaxed text-xs">
+                          <p className="text-zinc-300 leading-relaxed text-xs font-normal">
                             {study.strategy}
                           </p>
                         </div>
 
                         <div className="space-y-1">
-                          <span className="text-[11px] font-mono uppercase text-cyan-400 font-bold flex items-center gap-1">
-                            <Wrench className="w-3.5 h-3.5" /> Execution
+                          <span className="text-[11px] font-mono uppercase text-zinc-400 font-bold flex items-center gap-1">
+                            <Wrench className="w-3.5 h-3.5 text-zinc-500" /> Execution
                           </span>
-                          <p className="text-zinc-300 leading-relaxed text-xs">
+                          <p className="text-zinc-300 leading-relaxed text-xs font-normal">
                             {study.execution}
                           </p>
                         </div>
 
                         <div className="space-y-1.5 pt-2 border-t border-zinc-800/80">
-                          <span className="text-[11px] font-mono uppercase text-emerald-400 font-bold flex items-center gap-1">
+                          <span className="text-[11px] font-mono uppercase text-[#D4991A] font-bold flex items-center gap-1">
                             <ShieldCheck className="w-3.5 h-3.5" /> Key Results
                           </span>
                           <div className="space-y-1">
                             {study.results.map((res, i) => (
                               <div key={i} className="flex items-center gap-2 text-xs text-zinc-300">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#D4991A] shrink-0" />
                                 <span>{res}</span>
                               </div>
                             ))}
@@ -391,7 +386,7 @@ export const GrowthPortfolio = () => {
 
                     <div className="pt-6 mt-6 border-t border-zinc-800/80">
                       <Link to="/contact?service=growth">
-                        <Button variant="ghost" size="sm" icon={ArrowUpRight} className="text-emerald-400 hover:text-emerald-300">
+                        <Button variant="ghost" size="sm" icon={ArrowUpRight} className="text-[#D4991A] hover:text-[#B17A0A]">
                           Discuss Similar Growth
                         </Button>
                       </Link>
@@ -405,34 +400,36 @@ export const GrowthPortfolio = () => {
       </section>
 
       {/* Growth Process */}
-      <section className="py-20 bg-[#0c0c0e] relative border-y border-zinc-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-[#0c0c0e] border-y border-zinc-800/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <SectionHeader
-            badge="WORKFLOW"
-            badgeVariant="live"
+            badge="METHODOLOGY"
+            badgeVariant="gold"
             badgeIcon={Sparkles}
-            title="Growth Process"
+            title="Growth Execution Process"
+            highlightText="5 Steps"
+            highlightColor="gold"
             description="5-step execution framework tailored specifically for social media management and brand growth."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {processSteps.map((step, idx) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
+                transition={{ delay: idx * 0.06 }}
               >
-                <Card hover={true} className="h-full flex flex-col justify-between border-zinc-800/90">
+                <Card hover={true} className="h-full flex flex-col justify-between hover:border-[#B17A0A]/40">
                   <div className="space-y-3">
-                    <span className="text-2xl font-black font-mono text-emerald-400">
+                    <span className="text-2xl font-extrabold font-mono text-[#D4991A]">
                       {step.number}
                     </span>
                     <h3 className="text-base font-bold text-white tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
+                    <p className="text-xs text-zinc-400 leading-relaxed font-normal">
                       {step.desc}
                     </p>
                   </div>
@@ -460,20 +457,20 @@ export const GrowthPortfolio = () => {
       </div>
 
       {/* Growth Contact CTA */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-6 relative z-10">
-          <Badge variant="live" ping className="mx-auto">
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
+          <Badge variant="gold" icon={Calendar} className="mx-auto">
             Start Growing
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Ready to Grow Your Brand?
           </h2>
-          <p className="text-zinc-300 text-sm sm:text-base max-w-xl mx-auto">
+          <p className="text-zinc-300 text-sm sm:text-base max-w-xl mx-auto font-normal">
             Tell me about your business and social media goals, and let's discuss how I can help.
           </p>
           <div className="pt-2">
             <Link to="/contact?service=growth">
-              <Button variant="emerald" size="lg" icon={Calendar}>
+              <Button variant="gold" size="lg" icon={Calendar}>
                 Start a Conversation
               </Button>
             </Link>

@@ -5,21 +5,18 @@ export const Card = ({
   children,
   className,
   hover = true,
-  glow = false,
+  _glow = false,
   ...props
 }) => {
   return (
     <div
       className={cn(
-        "glass-card rounded-2xl p-6 transition-all duration-300 relative overflow-hidden group",
-        hover && "glass-card-hover",
-        glow && "glow-primary",
+        "bg-[#0d0d10] border border-zinc-800 rounded-xl p-6 transition-all duration-200 relative overflow-hidden group",
+        hover && "hover:border-zinc-700",
         className
       )}
       {...props}
     >
-      {/* Top micro light reflection border */}
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
       {children}
     </div>
   );
@@ -36,7 +33,7 @@ export const CardTitle = ({ children, className }) => (
 );
 
 export const CardDescription = ({ children, className }) => (
-  <p className={cn("text-sm text-zinc-400 leading-relaxed", className)}>
+  <p className={cn("text-sm text-zinc-400 leading-relaxed font-normal", className)}>
     {children}
   </p>
 );

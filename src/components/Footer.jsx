@@ -12,7 +12,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-[#070709] border-t border-zinc-800/80 pt-16 pb-12 text-zinc-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Top Split */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start justify-between">
@@ -20,11 +20,11 @@ export const Footer = () => {
           {/* Brand Info */}
           <div className="md:col-span-6 space-y-4">
             <Link to="/" className="flex items-center gap-2.5 group inline-flex">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform">
-                <Sparkles className="w-5 h-5" />
+              <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white group-hover:border-zinc-700 transition-colors">
+                <Sparkles className="w-4 h-4 text-zinc-300" />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-lg tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+                <span className="font-extrabold text-lg tracking-tight text-white group-hover:text-zinc-200 transition-colors">
                   GrowthWithMBA
                 </span>
                 <span className="text-xs font-mono text-zinc-400">
@@ -33,7 +33,7 @@ export const Footer = () => {
               </div>
             </Link>
 
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-md leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-md leading-relaxed font-normal">
               AI product building and performance growth marketing for businesses, startups, and entrepreneurs.
             </p>
           </div>
@@ -45,7 +45,7 @@ export const Footer = () => {
                 Portfolios
               </div>
               <ul className="space-y-2">
-                <li><Link to="/ai" className="hover:text-white transition-colors">AI Products & Vibe Coding</Link></li>
+                <li><Link to="/ai" className="hover:text-white transition-colors">AI Products</Link></li>
                 <li><Link to="/growth" className="hover:text-white transition-colors">Growth Marketing</Link></li>
               </ul>
             </div>
@@ -66,7 +66,7 @@ export const Footer = () => {
               </div>
               <ul className="space-y-2">
                 <li><a href={`mailto:${emailAddress}`} className="hover:text-white transition-colors">Email Direct</a></li>
-                <li><a href={whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp Direct</a></li>
+                <li><a href={whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">WhatsApp Direct</a></li>
               </ul>
             </div>
           </div>
@@ -80,7 +80,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-zinc-500">React, Tailwind CSS & Framer Motion</span>
+            <span className="text-zinc-500">M. Bin Amir Portfolio</span>
             <button
               onClick={scrollToTop}
               className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg border border-zinc-800 transition-colors focus:outline-none cursor-pointer"

@@ -17,17 +17,11 @@ import {
   CheckCircle2,
   Globe,
   Wrench,
-  AlertCircle,
   Code,
   Layers,
-  Search,
-  Target,
-  Rocket,
   ArrowRight,
   Bot,
-  Puzzle,
-  Calendar,
-  Zap
+  Puzzle
 } from "lucide-react";
 
 export const AIPortfolio = () => {
@@ -41,25 +35,21 @@ export const AIPortfolio = () => {
       title: "AI Product & MVP Development",
       description: "Helping turn ideas into functional web apps, dashboards, internal tools, and MVPs.",
       icon: Cpu,
-      accent: "bg-indigo-500/10 border-indigo-500/30 text-indigo-400"
     },
     {
       title: "Websites & Web Applications",
       description: "Building modern, responsive websites and web applications with clean design architectures.",
       icon: Globe,
-      accent: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400"
     },
     {
       title: "AI-Powered Digital Solutions",
       description: "Building practical AI-powered tools and features based on real user or business needs.",
       icon: Sparkles,
-      accent: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
     },
     {
       title: "Product Prototyping & Experiments",
       description: "Rapidly turning concepts into working prototypes that can be tested, evaluated, and improved.",
       icon: Wrench,
-      accent: "bg-amber-500/10 border-amber-500/30 text-amber-400"
     }
   ];
 
@@ -68,7 +58,7 @@ export const AIPortfolio = () => {
       id: "finance-tracker",
       name: "AI Finance & Expense Tracker",
       status: "Built",
-      statusVariant: "live",
+      statusVariant: "indigo",
       platform: "Antigravity Framework",
       purpose: "Simplifying receipt parsing and expense tracking for small businesses.",
       description:
@@ -80,14 +70,13 @@ export const AIPortfolio = () => {
         "Real-time expense insights"
       ],
       tools: ["Antigravity Framework", "React", "Tailwind CSS", "Chart.js"],
-      gradient: "from-indigo-600/20 via-cyan-500/10 to-transparent",
       icon: Wallet
     },
     {
       id: "medicine-app",
       name: "Medicine Inventory Management App",
       status: "Built",
-      statusVariant: "live",
+      statusVariant: "indigo",
       platform: "Lovable + Supabase",
       purpose: "Preventing stockouts and batch expirations for medicine inventory.",
       description:
@@ -99,33 +88,31 @@ export const AIPortfolio = () => {
         "Batch tracking interface"
       ],
       tools: ["Lovable", "Supabase", "React", "PostgreSQL"],
-      gradient: "from-emerald-600/20 via-teal-500/10 to-transparent",
       icon: Database
     },
     {
       id: "mukaf-site",
       name: "Mukaf Website",
       status: "Built",
-      statusVariant: "live",
+      statusVariant: "indigo",
       platform: "Lovable Platform",
       purpose: "Modern business e-commerce and brand web application.",
       description:
         "A modern business/e-commerce website built using Lovable, focusing on fast performance, responsive layout, and polished obsidian design.",
       features: [
-        "Obsidian glassmorphism visual system",
+        "Obsidian visual system",
         "Mobile-optimized page structure",
         "Micro-interaction UI animations",
         "Fast static page rendering"
       ],
       tools: ["Lovable Platform", "React", "Tailwind CSS", "Framer Motion"],
-      gradient: "from-cyan-600/20 via-indigo-500/10 to-transparent",
       icon: Globe
     },
     {
       id: "mba-os",
       name: "MBA OS",
       status: "In Development",
-      statusVariant: "metric",
+      statusVariant: "default",
       platform: "Lovable + Supabase",
       purpose: "Personal operating dashboard for client pipeline and project tracking.",
       description:
@@ -137,14 +124,13 @@ export const AIPortfolio = () => {
         "Task execution board"
       ],
       tools: ["Lovable", "Supabase", "Claude API", "Tailwind CSS"],
-      gradient: "from-amber-600/20 via-indigo-500/10 to-transparent",
       icon: LayoutDashboard
     },
     {
       id: "chrome-extension",
       name: "Productivity Chrome Extension",
       status: "In Development",
-      statusVariant: "rose",
+      statusVariant: "default",
       platform: "Web Extensions API",
       purpose: "Browser utility extension currently under active development.",
       description:
@@ -155,14 +141,13 @@ export const AIPortfolio = () => {
         "Minimal background script setup"
       ],
       tools: ["JavaScript", "HTML/CSS", "Chrome Extension API"],
-      gradient: "from-purple-600/20 via-rose-500/10 to-transparent",
       icon: Puzzle
     },
     {
       id: "ai-chatbot",
       name: "AI Knowledge Chatbot",
       status: "In Development",
-      statusVariant: "cyan",
+      statusVariant: "default",
       platform: "Google AI Studio",
       purpose: "Custom conversational bot prototype for document query processing.",
       description:
@@ -173,7 +158,6 @@ export const AIPortfolio = () => {
         "Clean chat interface UI"
       ],
       tools: ["Google AI Studio", "React", "Tailwind CSS"],
-      gradient: "from-blue-600/20 via-cyan-500/10 to-transparent",
       icon: Bot
     }
   ];
@@ -244,20 +228,18 @@ export const AIPortfolio = () => {
   return (
     <div className="min-h-screen bg-[#09090b]">
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-indigo-600/15 blur-[140px] rounded-full pointer-events-none -z-10" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
+      {/* Hero */}
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
           <div className="flex justify-center">
-            <Badge variant="ai" icon={Sparkles} className="py-1.5 px-4 text-xs font-semibold">
+            <Badge variant="ai" icon={Sparkles} className="py-1 px-3.5 text-xs">
               AI Product Builder • Vibe Coder
             </Badge>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] max-w-4xl mx-auto">
             I Turn Ideas Into{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
+            <span className="text-indigo-400">
               Digital Products.
             </span>
           </h1>
@@ -268,7 +250,7 @@ export const AIPortfolio = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link to="/contact?service=ai">
-              <Button variant="emerald" size="lg" icon={Code}>
+              <Button variant="indigo" size="lg" icon={Code}>
                 Let's Build Your Idea
               </Button>
             </Link>
@@ -282,36 +264,38 @@ export const AIPortfolio = () => {
       </section>
 
       {/* AI Services */}
-      <section className="py-20 bg-[#0c0c0e] relative border-y border-zinc-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-[#0c0c0e] border-y border-zinc-800/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="WHAT I BUILD"
+            badge="SERVICES"
             badgeVariant="ai"
             badgeIcon={Cpu}
             title="AI & Product Building Services"
+            highlightText="Overview"
+            highlightColor="indigo"
             description="Concise services focused on taking concepts from initial ideas to functional digital products."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((srv, idx) => {
               const Icon = srv.icon;
               return (
                 <motion.div
                   key={srv.title}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08 }}
+                  transition={{ delay: idx * 0.06 }}
                 >
-                  <Card hover={true} className="h-full flex flex-col justify-between border-zinc-800/90">
+                  <Card hover={true} className="h-full flex flex-col justify-between hover:border-indigo-500/40">
                     <div className="space-y-4">
-                      <div className={`w-11 h-11 rounded-xl border flex items-center justify-center ${srv.accent} shrink-0`}>
+                      <div className="w-10 h-10 rounded-lg bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className="text-lg font-bold text-white tracking-tight">
+                      <h3 className="text-base font-bold text-white tracking-tight">
                         {srv.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
                         {srv.description}
                       </p>
                     </div>
@@ -324,65 +308,65 @@ export const AIPortfolio = () => {
       </section>
 
       {/* Featured AI Projects */}
-      <section id="ai-projects" className="py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="ai-projects" className="py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <SectionHeader
-            badge="PROJECT PORTFOLIO"
+            badge="SHOWCASE"
             badgeVariant="ai"
             badgeIcon={Layers}
             title="Featured AI & Product Work"
+            highlightText="★"
+            highlightColor="indigo"
             description="Real web applications, prototypes, and digital products built using modern platforms."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((proj, idx) => {
               const Icon = proj.icon;
               const isInDev = proj.status === "In Development";
               return (
                 <motion.div
                   key={proj.id}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  transition={{ duration: 0.3, delay: idx * 0.06 }}
                   className="flex"
                 >
-                  <Card hover={true} className="flex flex-col justify-between w-full border-zinc-800/90 hover:border-indigo-500/40 relative overflow-hidden">
-                    <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl ${proj.gradient} blur-3xl pointer-events-none`} />
-
-                    <div className="space-y-5 relative z-10">
+                  <Card hover={true} className="flex flex-col justify-between w-full hover:border-indigo-500/40">
+                    <div className="space-y-5">
                       <div className="flex items-start justify-between gap-3">
                         <div>
-                          <Badge variant={proj.statusVariant} className="mb-2">
+                          <Badge variant={isInDev ? "default" : "ai"} className="mb-2">
                             Status: {proj.status}
                           </Badge>
-                          <h3 className="text-xl font-extrabold text-white tracking-tight">
+                          <h3 className="text-xl font-bold text-white tracking-tight">
                             {proj.name}
                           </h3>
                           <p className="text-xs font-mono text-zinc-400 mt-0.5">
                             {proj.platform}
                           </p>
                         </div>
-                        <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-indigo-400 shrink-0">
-                          <Icon className="w-5 h-5" />
+                        <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-indigo-400 shrink-0">
+                          <Icon className="w-4 h-4" />
                         </div>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         <div className="text-xs font-mono uppercase text-indigo-400 font-semibold">
                           Purpose / Problem
                         </div>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
+                        <p className="text-xs text-zinc-300 leading-relaxed font-normal">
                           {proj.purpose}
                         </p>
                       </div>
 
-                      <p className="text-xs text-zinc-400 leading-relaxed">
+                      <p className="text-xs text-zinc-400 leading-relaxed font-normal">
                         {proj.description}
                       </p>
 
                       <div className="space-y-1.5 pt-2 border-t border-zinc-800/80">
-                        <span className="text-[11px] font-mono text-cyan-400 font-semibold block uppercase">
+                        <span className="text-[11px] font-mono text-zinc-400 font-semibold block uppercase">
                           Key Features
                         </span>
                         <div className="space-y-1">
@@ -409,7 +393,7 @@ export const AIPortfolio = () => {
                       </div>
                     </div>
 
-                    <div className="pt-5 mt-5 border-t border-zinc-800/80 flex items-center justify-between relative z-10">
+                    <div className="pt-5 mt-5 border-t border-zinc-800/80 flex items-center justify-between">
                       <span className="text-xs font-mono text-zinc-500">
                         {isInDev ? "In Progress" : "Built Showcase"}
                       </span>
@@ -428,34 +412,36 @@ export const AIPortfolio = () => {
       </section>
 
       {/* AI Product Building Process */}
-      <section className="py-20 bg-[#0c0c0e] relative border-y border-zinc-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-[#0c0c0e] border-y border-zinc-800/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <SectionHeader
             badge="METHODOLOGY"
             badgeVariant="ai"
             badgeIcon={Wrench}
             title="AI Product Building Process"
+            highlightText="5 Steps"
+            highlightColor="indigo"
             description="A clear 5-step workflow designed to take ideas from concept to functional product."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {processSteps.map((step, idx) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
+                transition={{ delay: idx * 0.06 }}
               >
-                <Card hover={true} className="h-full flex flex-col justify-between border-zinc-800/90">
+                <Card hover={true} className="h-full flex flex-col justify-between hover:border-indigo-500/40">
                   <div className="space-y-3">
-                    <span className="text-2xl font-black font-mono text-indigo-400">
+                    <span className="text-2xl font-extrabold font-mono text-indigo-400">
                       {step.number}
                     </span>
                     <h3 className="text-base font-bold text-white tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
+                    <p className="text-xs text-zinc-400 leading-relaxed font-normal">
                       {step.desc}
                     </p>
                   </div>
@@ -470,10 +456,12 @@ export const AIPortfolio = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <SectionHeader
-            badge="CAPABILITIES"
+            badge="STACK"
             badgeVariant="ai"
             badgeIcon={Cpu}
             title="AI Skills & Development Stack"
+            highlightText="Overview"
+            highlightColor="indigo"
             description="Balanced technical categories representing genuine product building experience and active software tools."
           />
 
@@ -481,12 +469,12 @@ export const AIPortfolio = () => {
             {skillGroups.map((grp, idx) => (
               <motion.div
                 key={grp.title}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: idx * 0.08 }}
               >
-                <Card hover={true} className="h-full border-zinc-800/90">
+                <Card hover={true} className="h-full border-zinc-800 hover:border-indigo-500/40">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
                       <h3 className="text-lg font-bold text-white tracking-tight">
@@ -522,7 +510,7 @@ export const AIPortfolio = () => {
           <p className="text-xs font-mono text-zinc-400">
             Looking for help growing your brand instead?
           </p>
-          <Link to="/growth" className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">
+          <Link to="/growth" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#D4991A] hover:text-[#B17A0A] transition-colors">
             <span>Explore Growth Marketing</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
@@ -530,20 +518,20 @@ export const AIPortfolio = () => {
       </div>
 
       {/* AI Contact CTA */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-6 relative z-10">
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
           <Badge variant="ai" icon={Sparkles} className="mx-auto">
             Let's Collaborate
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Have an Idea You Want to Build?
           </h2>
-          <p className="text-zinc-300 text-sm sm:text-base max-w-xl mx-auto">
+          <p className="text-zinc-300 text-sm sm:text-base max-w-xl mx-auto font-normal">
             Tell me what you're thinking about building, and let's explore how we can turn it into something practical.
           </p>
           <div className="pt-2">
             <Link to="/contact?service=ai">
-              <Button variant="emerald" size="lg" icon={Code}>
+              <Button variant="indigo" size="lg" icon={Code}>
                 Start a Project
               </Button>
             </Link>

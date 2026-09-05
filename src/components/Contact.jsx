@@ -8,11 +8,9 @@ import { usePageSEO } from "../utils/usePageSEO";
 import {
   MessageSquare,
   Mail,
-  Send,
   CheckCircle2,
   Clock,
   ShieldCheck,
-  Globe,
   PhoneCall,
   AlertCircle
 } from "lucide-react";
@@ -95,64 +93,59 @@ export const Contact = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen pt-32 pb-24 relative overflow-hidden bg-[#09090b]">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-r from-indigo-600/15 via-cyan-500/10 to-emerald-500/15 blur-[160px] rounded-full pointer-events-none" />
+  const isGrowthContext = serviceParam === "growth";
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+  return (
+    <div className="min-h-screen pt-32 pb-24 bg-[#09090b]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Header */}
         <SectionHeader
-          badge="GET IN TOUCH"
-          badgeVariant="live"
+          badge="CONTACT"
+          badgeVariant="default"
           badgeIcon={MessageSquare}
           title="Start a Project or Conversation"
           description="Whether you have an AI product idea to build or want to grow your brand through social media, send an inquiry below."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Form Column */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
             className="lg:col-span-7 w-full"
           >
-            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-indigo-500/35 relative overflow-hidden">
-              <div className="mb-6">
-                <Badge variant="live" ping className="mb-2">
+            <div className="bg-[#0d0d10] p-6 sm:p-8 rounded-xl border border-zinc-800 space-y-6">
+              <div>
+                <Badge variant={isGrowthContext ? "gold" : "ai"} className="mb-2">
                   Project Form
                 </Badge>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                <h3 className="text-xl font-bold text-white tracking-tight">
                   Project & Inquiry Details
                 </h3>
-                <p className="text-xs text-zinc-400 mt-1">
+                <p className="text-xs text-zinc-400 mt-1 font-normal">
                   Fill out the details below and I will respond within 24 hours.
                 </p>
               </div>
 
               {status === "success" ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3"
-                >
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto">
-                    <CheckCircle2 className="w-6 h-6" />
+                <div className="p-6 rounded-lg bg-zinc-900 border border-zinc-800 text-center space-y-3">
+                  <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-emerald-400 mx-auto">
+                    <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <h4 className="text-lg font-bold text-white">Inquiry Sent Successfully!</h4>
-                  <p className="text-xs text-zinc-300">
+                  <p className="text-xs text-zinc-300 font-normal">
                     Thanks! Your message has been received and I'll get back to you within 24 hours.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
-                    className="text-xs text-indigo-400 hover:text-indigo-300 font-mono underline cursor-pointer"
+                    className="text-xs text-zinc-400 hover:text-white font-mono underline cursor-pointer"
                   >
                     Send another inquiry
                   </button>
-                </motion.div>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -166,7 +159,7 @@ export const Contact = () => {
                         required
                         value={formState.name}
                         onChange={handleChange}
-                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-zinc-600 transition-colors"
                         placeholder="Your Name"
                       />
                     </div>
@@ -180,7 +173,7 @@ export const Contact = () => {
                         required
                         value={formState.email}
                         onChange={handleChange}
-                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-zinc-600 transition-colors"
                         placeholder="name@example.com"
                       />
                     </div>
@@ -197,7 +190,7 @@ export const Contact = () => {
                         required
                         value={formState.businessName}
                         onChange={handleChange}
-                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-zinc-600 transition-colors"
                         placeholder="Company Name"
                       />
                     </div>
@@ -210,7 +203,7 @@ export const Contact = () => {
                         name="link"
                         value={formState.link}
                         onChange={handleChange}
-                        className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-zinc-600 transition-colors"
                         placeholder="https:// or @handle"
                       />
                     </div>
@@ -225,7 +218,7 @@ export const Contact = () => {
                       required
                       value={formState.serviceNeeded}
                       onChange={handleChange}
-                      className="w-full bg-zinc-900/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:outline-none focus:border-indigo-500 transition-colors"
+                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-600 transition-colors"
                     >
                       <option value="" disabled>Select an option...</option>
                       <option value="AI Product / Web App">AI Product / Web App</option>
@@ -250,13 +243,13 @@ export const Contact = () => {
                       required
                       value={formState.message}
                       onChange={handleChange}
-                      className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-zinc-600 transition-colors resize-none"
                       placeholder="Share details about your goals, product concept, or brand requirements..."
                     />
                   </div>
 
                   <Button
-                    variant="emerald"
+                    variant={isGrowthContext ? "gold" : "indigo"}
                     size="lg"
                     type="submit"
                     className="w-full mt-2"
@@ -266,64 +259,63 @@ export const Contact = () => {
                   </Button>
 
                   {status === "error" && (
-                    <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-300 flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 shrink-0" />
+                    <div className="p-3 rounded-lg bg-zinc-900 border border-rose-900/50 text-xs text-rose-300 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
                       <span>Form submission error. You can also email directly to growthwithmba@gmail.com.</span>
                     </div>
                   )}
                 </form>
               )}
 
-              <div className="pt-4 mt-6 border-t border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-400 font-medium">
+              <div className="pt-4 border-t border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-400 font-medium">
                 <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-emerald-400" /> Response within 24 hours
+                  <Clock className="w-4 h-4 text-zinc-500" /> Response within 24 hours
                 </span>
                 <span className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-indigo-400" /> Direct founder collaboration
+                  <ShieldCheck className="w-4 h-4 text-zinc-500" /> Direct founder collaboration
                 </span>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Details Column */}
+          {/* Direct Details */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="lg:col-span-5 w-full space-y-6"
           >
-            <div className="glass-card rounded-3xl p-6 sm:p-8 border border-zinc-700/60 shadow-2xl space-y-6">
-              
+            <div className="bg-[#0d0d10] rounded-xl p-6 sm:p-8 border border-zinc-800 space-y-6">
               <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
                 <div>
-                  <h4 className="text-xl font-extrabold text-white">M. Bin Amir</h4>
-                  <p className="text-xs font-mono text-indigo-400">GrowthWithMBA</p>
+                  <h4 className="text-xl font-bold text-white">M. Bin Amir</h4>
+                  <p className="text-xs font-mono text-zinc-400">GrowthWithMBA</p>
                 </div>
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                <Badge variant="default">Available</Badge>
               </div>
 
               <div className="space-y-3">
-                <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
-                  <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-indigo-400" /> Direct Email
+                <div className="p-3.5 bg-zinc-900 rounded-lg border border-zinc-800 space-y-1">
+                  <div className="text-[11px] font-mono text-zinc-400 uppercase flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-zinc-400" /> Direct Email
                   </div>
                   <a
                     href={`mailto:${emailAddress}`}
-                    className="text-sm font-semibold text-white hover:text-indigo-400 transition-colors block font-mono"
+                    className="text-sm font-semibold text-white hover:text-zinc-300 transition-colors block font-mono"
                   >
                     {emailAddress}
                   </a>
                 </div>
 
-                <div className="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 space-y-1">
-                  <div className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
-                    <PhoneCall className="w-3.5 h-3.5 text-emerald-400" /> WhatsApp Direct
+                <div className="p-3.5 bg-zinc-900 rounded-lg border border-zinc-800 space-y-1">
+                  <div className="text-[11px] font-mono text-zinc-400 uppercase flex items-center gap-1.5">
+                    <PhoneCall className="w-3.5 h-3.5 text-zinc-400" /> WhatsApp Direct
                   </div>
                   <a
                     href={`https://wa.me/923212594511?text=Hi%20M.%20Bin%20Amir,%20I'd%20like%20to%20discuss%20a%20project.`}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors block font-mono"
+                    className="text-sm font-semibold text-zinc-200 hover:text-white transition-colors block font-mono"
                   >
                     {displayWhatsApp}
                   </a>
@@ -333,7 +325,6 @@ export const Contact = () => {
               <div className="pt-2 text-center text-xs font-mono text-zinc-500">
                 AI Product Building • Social Media • Growth Marketing
               </div>
-
             </div>
           </motion.div>
 
