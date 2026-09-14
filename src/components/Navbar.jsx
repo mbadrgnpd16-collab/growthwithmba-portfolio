@@ -38,6 +38,7 @@ export const Navbar = () => {
     { name: "AI Products", path: "/ai" },
     { name: "Growth Marketing", path: "/growth" },
     { name: "About", path: "/about" },
+    { name: "CV", path: "/cv" },
     { name: "Contact", path: "/contact" },
   ];
 

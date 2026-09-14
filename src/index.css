@@ -69,3 +69,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
 }
+
+/* Global Print Overrides */
+@media print {
+  html, body, #root, #root > div {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    background-color: #ffffff !important;
+    color: #09090b !important;
+  }
+}

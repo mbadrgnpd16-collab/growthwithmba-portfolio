@@ -20,6 +20,9 @@ GrowthWithMBA is the personal brand and professional portfolio website of M. Bin
 - [AI Products Portfolio](https://growthwithmba-portfolio.vercel.app/ai) — Web Apps, Tools & MVPs
 - [Growth Marketing Portfolio](https://growthwithmba-portfolio.vercel.app/growth) — Social Media Strategy & Verified Case Studies
 - [About M. Bin Amir](https://growthwithmba-portfolio.vercel.app/about) — Professional Background & Current Work
+- [CV Gateway Hub](https://growthwithmba-portfolio.vercel.app/cv) — CV Selection Gateway
+- [AI Product Builder CV](https://growthwithmba-portfolio.vercel.app/cv/ai) — AI & Product Development Specialized Resume
+- [Growth Marketer CV](https://growthwithmba-portfolio.vercel.app/cv/growth) — Social Media & Growth Marketing Specialized Resume
 - [Contact & Inquiries](https://growthwithmba-portfolio.vercel.app/contact) — Project Inquiries & Consultation
 
 ## Verified Case Studies & Results

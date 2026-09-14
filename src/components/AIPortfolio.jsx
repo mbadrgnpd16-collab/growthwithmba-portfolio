@@ -69,7 +69,7 @@ export const AIPortfolio = () => {
         "Interactive analytics dashboard",
         "Real-time expense insights"
       ],
-      tools: ["Antigravity Framework", "React", "Tailwind CSS", "Chart.js"],
+      tools: ["Antigravity", "Gemini"],
       icon: Wallet
     },
     {
@@ -87,7 +87,7 @@ export const AIPortfolio = () => {
         "Role-based authentication",
         "Batch tracking interface"
       ],
-      tools: ["Lovable", "Supabase", "React", "PostgreSQL"],
+      tools: ["Lovable", "Supabase"],
       icon: Database
     },
     {
@@ -105,7 +105,7 @@ export const AIPortfolio = () => {
         "Micro-interaction UI animations",
         "Fast static page rendering"
       ],
-      tools: ["Lovable Platform", "React", "Tailwind CSS", "Framer Motion"],
+      tools: ["Antigravity", "Lovable"],
       icon: Globe
     },
     {
@@ -123,7 +123,7 @@ export const AIPortfolio = () => {
         "Prompt workspace & notes",
         "Task execution board"
       ],
-      tools: ["Lovable", "Supabase", "Claude API", "Tailwind CSS"],
+      tools: ["Antigravity", "Supabase", "Gemini"],
       icon: LayoutDashboard
     },
     {
@@ -140,7 +140,7 @@ export const AIPortfolio = () => {
         "Quick web page snippet saver",
         "Minimal background script setup"
       ],
-      tools: ["JavaScript", "HTML/CSS", "Chrome Extension API"],
+      tools: ["Antigravity"],
       icon: Puzzle
     },
     {
@@ -157,7 +157,7 @@ export const AIPortfolio = () => {
         "Conversational prompt tuning",
         "Clean chat interface UI"
       ],
-      tools: ["Google AI Studio", "React", "Tailwind CSS"],
+      tools: ["Cursor", "Perplexity"],
       icon: Bot
     }
   ];

@@ -17,6 +17,15 @@ const AboutPage = lazy(() =>
 const Contact = lazy(() =>
   import("./components/Contact").then((m) => ({ default: m.Contact }))
 );
+const CVSelector = lazy(() =>
+  import("./components/CVSelector").then((m) => ({ default: m.CVSelector }))
+);
+const AICVPage = lazy(() =>
+  import("./components/AICVPage").then((m) => ({ default: m.AICVPage }))
+);
+const GrowthCVPage = lazy(() =>
+  import("./components/GrowthCVPage").then((m) => ({ default: m.GrowthCVPage }))
+);
 
 // Minimal background fallback without spinners or layout shift
 function PageFallback() {
@@ -50,6 +59,9 @@ export default function App() {
               <Route path="/ai" element={<AIPortfolio />} />
               <Route path="/growth" element={<GrowthPortfolio />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/cv" element={<CVSelector />} />
+              <Route path="/cv/ai" element={<AICVPage />} />
+              <Route path="/cv/growth" element={<GrowthCVPage />} />
               <Route path="/contact" element={<Contact />} />
               {/* Fallback route */}
               <Route path="*" element={<Home />} />
