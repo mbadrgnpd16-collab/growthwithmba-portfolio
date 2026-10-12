@@ -1,4 +1,6 @@
-/* Ava — GrowthWithMBA website chat widget styles (v1)
+/* Ava — GrowthWithMBA website chat widget styles (v2)
+ * Themed to match the GrowthWithMBA portfolio: dark zinc surfaces,
+ * indigo accent (#6366f1), Plus Jakarta Sans.
  * Every selector is prefixed with "ava-" to avoid collisions with the host site.
  */
 
@@ -11,18 +13,19 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  background: #0f172a;
+  background: #6366f1;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.45);
   z-index: 2147483000;
   transition: transform 0.15s ease, background 0.15s ease;
   padding: 0;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
-.ava-bubble:hover { transform: scale(1.06); background: #1e293b; }
-.ava-bubble.ava-open { background: #334155; }
+.ava-bubble:hover { transform: scale(1.06); background: #818cf8; }
+.ava-bubble.ava-open { background: #4f46e5; }
 .ava-bubble-dot {
   position: absolute;
   top: 8px;
@@ -31,7 +34,7 @@
   height: 10px;
   border-radius: 50%;
   background: #22c55e;
-  border: 2px solid #ffffff;
+  border: 2px solid #09090b;
 }
 
 .ava-panel {
@@ -42,23 +45,25 @@
   max-width: calc(100vw - 32px);
   height: 600px;
   max-height: calc(100vh - 130px);
-  background: #ffffff;
+  background: #101014;
+  border: 1px solid #27272a;
   border-radius: 16px;
-  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 2147483001;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.45;
-  color: #0f172a;
+  color: #f4f4f5;
 }
 .ava-panel.ava-hidden { display: none; }
 
 .ava-header {
-  background: #0f172a;
-  color: #ffffff;
+  background: #131318;
+  border-bottom: 1px solid #27272a;
+  color: #f4f4f5;
   padding: 14px 16px;
   display: flex;
   align-items: center;
@@ -66,34 +71,34 @@
   flex: 0 0 auto;
 }
 .ava-header-name { font-weight: 700; font-size: 16px; }
-.ava-header-sub { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+.ava-header-name .ava-accent { color: #a5b4fc; }
+.ava-header-sub { font-size: 12px; color: #a1a1aa; margin-top: 2px; }
 .ava-close {
   background: none;
   border: none;
-  color: #ffffff;
+  color: #a1a1aa;
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
-  opacity: 0.8;
   padding: 0 2px;
 }
-.ava-close:hover { opacity: 1; }
+.ava-close:hover { color: #f4f4f5; }
 
-.ava-progress { padding: 10px 16px 4px; flex: 0 0 auto; background: #f8fafc; }
+.ava-progress { padding: 10px 16px 4px; flex: 0 0 auto; background: #101014; }
 .ava-progress-track {
   height: 5px;
-  background: #e2e8f0;
+  background: #27272a;
   border-radius: 3px;
   overflow: hidden;
 }
 .ava-progress-fill {
   height: 100%;
   width: 14%;
-  background: #0ea5e9;
+  background: #6366f1;
   border-radius: 3px;
   transition: width 0.3s ease;
 }
-.ava-progress-label { font-size: 11px; color: #64748b; margin-top: 5px; }
+.ava-progress-label { font-size: 11px; color: #a1a1aa; margin-top: 5px; }
 
 .ava-messages {
   flex: 1 1 auto;
@@ -102,7 +107,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #ffffff;
+  background: #101014;
 }
 .ava-msg { display: flex; }
 .ava-msg-ava { justify-content: flex-start; }
@@ -114,13 +119,13 @@
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-.ava-msg-ava .ava-bubble-text { background: #f1f5f9; color: #0f172a; border-bottom-left-radius: 4px; }
-.ava-msg-user .ava-bubble-text { background: #0f172a; color: #ffffff; border-bottom-right-radius: 4px; }
+.ava-msg-ava .ava-bubble-text { background: #1c1c22; color: #f4f4f5; border-bottom-left-radius: 4px; border: 1px solid #27272a; }
+.ava-msg-user .ava-bubble-text { background: #6366f1; color: #ffffff; border-bottom-right-radius: 4px; }
 
 .ava-typing .ava-bubble-text { display: flex; gap: 5px; align-items: center; padding: 14px 16px; }
 .ava-typing span {
   width: 7px; height: 7px; border-radius: 50%;
-  background: #94a3b8;
+  background: #818cf8;
   animation: ava-blink 1.2s infinite;
 }
 .ava-typing span:nth-child(2) { animation-delay: 0.2s; }
@@ -133,63 +138,69 @@
   gap: 8px;
   padding: 6px 14px 10px;
   flex: 0 0 auto;
-  background: #ffffff;
+  background: #101014;
 }
 .ava-chip {
-  border: 1px solid #0ea5e9;
-  background: #f0f9ff;
-  color: #0369a1;
+  border: 1px solid #6366f1;
+  background: rgba(99, 102, 241, 0.12);
+  color: #c7d2fe;
   border-radius: 999px;
   padding: 7px 13px;
   font-size: 13px;
+  font-family: inherit;
   cursor: pointer;
   transition: background 0.15s ease;
 }
-.ava-chip:hover { background: #e0f2fe; }
+.ava-chip:hover { background: rgba(99, 102, 241, 0.25); }
 
 .ava-inputrow {
   display: flex;
   gap: 8px;
   padding: 10px 12px 14px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #27272a;
   flex: 0 0 auto;
-  background: #ffffff;
+  background: #131318;
 }
 .ava-input {
   flex: 1 1 auto;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #3f3f46;
+  background: #1c1c22;
+  color: #f4f4f5;
   border-radius: 999px;
   padding: 10px 14px;
   font-size: 14px;
+  font-family: inherit;
   outline: none;
   min-width: 0;
 }
-.ava-input:focus { border-color: #0ea5e9; }
+.ava-input::placeholder { color: #71717a; }
+.ava-input:focus { border-color: #6366f1; }
 .ava-send {
   border: none;
   border-radius: 999px;
-  background: #0f172a;
+  background: #6366f1;
   color: #ffffff;
   padding: 10px 18px;
   font-size: 14px;
   font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
 }
-.ava-send:hover { background: #1e293b; }
+.ava-send:hover { background: #818cf8; }
 
 .ava-brief {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: #131318;
+  border: 1px solid #3f3f46;
   border-radius: 12px;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.ava-brief-title { font-weight: 700; font-size: 14px; }
+.ava-brief-title { font-weight: 700; font-size: 14px; color: #f4f4f5; }
 .ava-brief-text {
   font-size: 12.5px;
-  color: #334155;
+  color: #d4d4d8;
   white-space: pre-wrap;
   word-wrap: break-word;
   max-height: 220px;
@@ -203,20 +214,22 @@
   padding: 10px 14px;
   font-size: 13.5px;
   font-weight: 600;
-  border: 1px solid #0f172a;
-  color: #0f172a;
-  background: #ffffff;
+  font-family: inherit;
+  border: 1px solid #6366f1;
+  color: #c7d2fe;
+  background: transparent;
+  cursor: pointer;
 }
-.ava-btn:hover { background: #f1f5f9; }
+.ava-btn:hover { background: rgba(99, 102, 241, 0.15); }
 .ava-btn-primary { background: #16a34a; border-color: #16a34a; color: #ffffff; }
 .ava-btn-primary:hover { background: #15803d; }
-.ava-brief-mail { font-size: 12px; color: #64748b; text-align: center; }
-.ava-brief-mail a { color: #0369a1; }
+.ava-brief-mail { font-size: 12px; color: #a1a1aa; text-align: center; }
+.ava-brief-mail a { color: #a5b4fc; }
 
 .ava-error {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #991b1b;
+  background: rgba(153, 27, 27, 0.25);
+  border: 1px solid #7f1d1d;
+  color: #fca5a5;
   border-radius: 10px;
   padding: 10px 12px;
   font-size: 13px;
@@ -224,10 +237,11 @@
 .ava-retry {
   background: none;
   border: none;
-  color: #0369a1;
+  color: #a5b4fc;
   font-weight: 700;
   cursor: pointer;
   font-size: 13px;
+  font-family: inherit;
   padding: 0;
   text-decoration: underline;
 }
