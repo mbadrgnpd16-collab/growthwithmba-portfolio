@@ -288,8 +288,14 @@
       }),
     })
       .then(function (res) {
-        if (!res.ok) throw new Error("bad status " + res.status);
-        return res.json();
+        return res.json().catch(function () { return null; }).then(function (data) {
+          if (!res.ok) {
+            var err = new Error((data && data.error) || "Something went wrong sending your message.");
+            err.isServerMessage = !!(data && data.error);
+            throw err;
+          }
+          return data;
+        });
       })
       .then(function (data) {
         hideTyping();
@@ -314,10 +320,10 @@
         }
         save();
       })
-      .catch(function () {
+      .catch(function (e) {
         hideTyping();
         state.busy = false;
-        renderError("Something went wrong sending your message.");
+        renderError(e && e.isServerMessage ? e.message : "Something went wrong sending your message.");
       });
   }
 
