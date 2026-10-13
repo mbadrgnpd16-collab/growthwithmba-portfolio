@@ -173,6 +173,28 @@ async function streamText(model, apiKey, contents, onDelta) {
   var buf = "";
   var out = "";
   var sent = 0;
+  function handleRaw(text) {
+    const chunks = String(text).split("\n\n");
+    for (const chunk of chunks) {
+      const line = chunk.trim();
+      if (line.indexOf("data:") !== 0) continue;
+      const payload = line.slice(5).trim();
+      if (!payload || payload === "[DONE]") continue;
+      try {
+        const evt = JSON.parse(payload);
+        const cands = (evt && evt.candidates) || [];
+        for (const c of cands) {
+          const parts = (c && c.content && c.content.parts) || [];
+          for (const p of parts) {
+            if (p && p.text) {
+              out += p.text;
+              flush(false);
+            }
+          }
+        }
+      } catch (e) { /* ignore malformed chunk */ }
+    }
+  }
   function flush(final) {
     var idx = out.indexOf(META_MARK);
     var end;
@@ -189,31 +211,17 @@ async function streamText(model, apiKey, contents, onDelta) {
       const step = await reader.read();
       if (step.done) break;
       buf += decoder.decode(step.value, { stream: true });
-      const chunks = buf.split("\n\n");
-      buf = chunks.pop();
-      for (const chunk of chunks) {
-        const line = chunk.trim();
-        if (line.indexOf("data:") !== 0) continue;
-        const payload = line.slice(5).trim();
-        if (!payload || payload === "[DONE]") continue;
-        try {
-          const evt = JSON.parse(payload);
-          const cands = (evt && evt.candidates) || [];
-          for (const c of cands) {
-            const parts = (c && c.content && c.content.parts) || [];
-            for (const p of parts) {
-              if (p && p.text) {
-                out += p.text;
-                flush(false);
-              }
-            }
-          }
-        } catch (e) { /* ignore malformed chunk */ }
+      const sep = buf.lastIndexOf("\n\n");
+      if (sep >= 0) {
+        handleRaw(buf.slice(0, sep));
+        buf = buf.slice(sep + 2);
       }
     }
   } catch (e) {
     console.error("[ava] stream interrupted:", e && e.message);
   }
+  if (buf.trim()) handleRaw(buf); // trailing chunk without a terminating blank line
+  buf = "";
   flush(true);
   try { reader.cancel(); } catch (e) {}
   return out;
