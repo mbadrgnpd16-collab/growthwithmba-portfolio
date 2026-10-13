@@ -273,19 +273,111 @@
     callApi();
   }
 
-  function callApi() {
-    if (state.busy) return;
-    state.busy = true;
-    showTyping();
+  function apiPayload(stream) {
+    return JSON.stringify({
+      messages: state.messages.map(function (m) {
+        return { role: m.role, text: m.text };
+      }),
+      stream: !!stream,
+    });
+  }
 
+  var streamState = null; // { node, text } while a streamed reply is arriving
+
+  function startStreamBubble() {
+    hideTyping();
+    var wrap = el("div", "ava-msg ava-msg-ava");
+    var b = el("div", "ava-bubble-text", "");
+    wrap.appendChild(b);
+    messagesBox.appendChild(wrap);
+    scrollDown();
+    streamState = { node: b, text: "" };
+  }
+
+  function appendStreamText(delta) {
+    if (!streamState) startStreamBubble();
+    streamState.text += delta;
+    streamState.node.innerHTML = esc(streamState.text).replace(/\n/g, "<br>");
+    scrollDown();
+  }
+
+  function finishStream(meta) {
+    var full = streamState ? streamState.text : "";
+    streamState = null;
+    hideTyping();
+    state.busy = false;
+    if (!full && !meta) {
+      renderError("Something went wrong sending your message.");
+      return;
+    }
+    if (full) state.messages.push({ role: "assistant", text: full });
+    if (meta && typeof meta === "object") {
+      state.stage = meta.stage || state.stage;
+      state.verdict = meta.verdict || "ongoing";
+      state.done = !!meta.done;
+      if (meta.leadBrief) state.leadBrief = meta.leadBrief;
+      updateProgress();
+      if (state.done) {
+        quickBox.innerHTML = "";
+        inputRow.style.display = "none";
+        if (state.leadBrief) renderBrief();
+        progressLabel.textContent = "Conversation complete";
+      } else {
+        renderQuickReplies(meta.quickReplies);
+      }
+    }
+    save();
+  }
+
+  function readStream(reader) {
+    var decoder = new TextDecoder();
+    var buf = "";
+    var meta = null;
+    function pump() {
+      return reader.read().then(function (step) {
+        if (step.done) {
+          finishStream(meta);
+          return;
+        }
+        buf += decoder.decode(step.value, { stream: true });
+        var parts = buf.split("\n\n");
+        buf = parts.pop();
+        for (var i = 0; i < parts.length; i++) {
+          var line = parts[i].trim();
+          if (line.indexOf("data:") !== 0) continue;
+          var payload = line.slice(5).trim();
+          if (payload === "[DONE]") {
+            finishStream(meta);
+            return;
+          }
+          try {
+            var evt = JSON.parse(payload);
+            if (evt && typeof evt.delta === "string") appendStreamText(evt.delta);
+            else if (evt && evt.meta) meta = evt.meta;
+            else if (evt && evt.error) {
+              streamState = null;
+              hideTyping();
+              state.busy = false;
+              renderError(evt.error);
+              return;
+            }
+          } catch (e) { /* ignore malformed chunk */ }
+        }
+        return pump();
+      });
+    }
+    // If the stream breaks mid-way, keep whatever arrived.
+    return pump().catch(function () {
+      finishStream(meta);
+    });
+  }
+
+  function callApiJson() {
+    // Non-streaming fallback (older browsers, proxies that buffer SSE, etc.)
     fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: state.messages.map(function (m) {
-          return { role: m.role, text: m.text };
-        }),
-      }),
+      body: apiPayload(false),
     })
       .then(function (res) {
         return res.json().catch(function () { return null; }).then(function (data) {
@@ -324,6 +416,30 @@
         hideTyping();
         state.busy = false;
         renderError(e && e.isServerMessage ? e.message : "Something went wrong sending your message.");
+      });
+  }
+
+  function callApi() {
+    if (state.busy) return;
+    state.busy = true;
+    showTyping();
+
+    fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "text/event-stream" },
+      body: apiPayload(true),
+    })
+      .then(function (res) {
+        var ct = res.headers.get("content-type") || "";
+        if (!res.ok || ct.indexOf("text/event-stream") < 0 || !res.body || typeof res.body.getReader !== "function") {
+          throw new Error("fallback-to-json");
+        }
+        return readStream(res.body.getReader());
+      })
+      .catch(function () {
+        // Streaming unavailable or failed before the first byte: use the JSON fallback.
+        // (If a stream already started, readStream finalizes it on its own.)
+        if (!streamState) callApiJson();
       });
   }
 
