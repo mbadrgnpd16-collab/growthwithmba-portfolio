@@ -158,7 +158,7 @@ async function generateText(model, apiKey, contents) {
 }
 
 // Streaming single-model call. Calls onDelta(textChunk) for reply text; resolves with full text.
-async function streamText(model, apiKey, contents, onDelta, dbg) {
+async function streamText(model, apiKey, contents, onDelta) {
   const r = await fetch(
     "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":streamGenerateContent?alt=sse",
     {
@@ -167,11 +167,6 @@ async function streamText(model, apiKey, contents, onDelta, dbg) {
       body: geminiBody(contents),
     }
   );
-  if (dbg) {
-    dbg.status = r.status;
-    dbg.contentType = r.headers.get("content-type");
-    dbg.hasBody = !!r.body;
-  }
   if (!r.ok) throw httpError(r.status);
   const reader = r.body.getReader();
   const decoder = new TextDecoder();
@@ -215,8 +210,7 @@ async function streamText(model, apiKey, contents, onDelta, dbg) {
     for (;;) {
       const step = await reader.read();
       if (step.done) break;
-      buf += decoder.decode(step.value, { stream: true });
-      if (dbg && !dbg.rawDone) { dbg.rawSample = buf.slice(0, 400); }
+      buf += decoder.decode(step.value, { stream: true }).replace(/\r\n/g, "\n");
       const sep = buf.lastIndexOf("\n\n");
       if (sep >= 0) {
         handleRaw(buf.slice(0, sep));
@@ -229,7 +223,6 @@ async function streamText(model, apiKey, contents, onDelta, dbg) {
   if (buf.trim()) handleRaw(buf); // trailing chunk without a terminating blank line
   buf = "";
   flush(true);
-  if (dbg) { dbg.rawDone = true; dbg.outLen = out.length; }
   try { reader.cancel(); } catch (e) {}
   return out;
 }
@@ -305,11 +298,9 @@ export default async function handler(req, res) {
     for (var mi = 0; mi < GEMINI_MODELS.length && !streamOk; mi++) {
       var model = GEMINI_MODELS[mi];
       try {
-        const dbg = { rawSample: "", rawDone: false, outLen: 0, status: 0, contentType: "", hasBody: false };
         const full = await streamText(model, apiKey, contents, function (delta) {
           send({ delta: delta });
-        }, dbg);
-        send({ debug: dbg });
+        });
         const parsed = parseTwoPart(full);
         send({ meta: parsed.meta });
         sseHead();
